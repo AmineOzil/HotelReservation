@@ -16,11 +16,11 @@ namespace WebApplication1
 
         public Chambre(int numero, int etage, string type, int nbr_lits, int prix)
         {
-            this.Numero = numero;
-            this.Etage = etage;
-            this.Type = type;
-            this.Nbr_lits = nbr_lits;
-            this.Prix = prix;
+            this.numero = numero;
+            this.etage = etage;
+            this.type = type;
+            this.nbr_lits = nbr_lits;
+            this.prix = prix;
         }
 
         public Boolean estDisponible(this, DateTime checkIn, DateTime checkOut)
@@ -64,7 +64,7 @@ namespace WebApplication1
             get => numero;
             set => numero = value;
         }
-        public int Etage
+        public int etage
         {
             get => etage;
             set => etage = value;

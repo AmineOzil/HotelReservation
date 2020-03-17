@@ -15,11 +15,11 @@ namespace WebApplication1
 
         public Reservation(int id, DateTime checkIn, DateTime checkOut, int prix_res, int id_client)
         {
-            this.Id = id;
+            this.id = id;
             this.checkIn = checkIn;
             this.checkOut = checkOut;
-            this.Prix_res = prix_res;
-            this.Id_client = id_client;
+            this.prix_res = prix_res;
+            this.id_client = id_client;
         }
 
         public int id
