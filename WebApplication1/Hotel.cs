@@ -226,6 +226,15 @@ namespace WebApplication1
         {
             chambres.Add(chambre);
         }
-
+        public void etat()
+        {
+            foreach (Chambre chambre in chambres){
+                if (chambre.estDisponible())
+                {
+                    état = true;
+                    break;
+                }
+            }
+        }
     }
 }
