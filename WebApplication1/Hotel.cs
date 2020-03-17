@@ -18,12 +18,12 @@ namespace WebApplication1
         {
             get
             {
-                return Nbr_étoiles1;
+                return Nbr_étoiles;
             }
 
             set
             {
-                Nbr_étoiles1 = value;
+                Nbr_étoiles = value;
             }
         }
 
@@ -31,12 +31,12 @@ namespace WebApplication1
         {
             get
             {
-                return État1;
+                return État;
             }
 
             set
             {
-                État1 = value;
+                État = value;
             }
         }
 
@@ -44,12 +44,12 @@ namespace WebApplication1
         {
             get
             {
-                return Nom1;
+                return Nom;
             }
 
             set
             {
-                Nom1 = value;
+                Nom = value;
             }
         }
 
@@ -57,12 +57,12 @@ namespace WebApplication1
         {
             get
             {
-                return Adresse1;
+                return Adresse;
             }
 
             set
             {
-                Adresse1 = value;
+                Adresse = value;
             }
         }
 
@@ -70,12 +70,12 @@ namespace WebApplication1
         {
             get
             {
-                return Pays1;
+                return Pays;
             }
 
             set
             {
-                Pays1 = value;
+                Pays = value;
             }
         }
 
@@ -83,12 +83,12 @@ namespace WebApplication1
         {
             get
             {
-                return Ville1;
+                return Ville;
             }
 
             set
             {
-                Ville1 = value;
+                Ville = value;
             }
         }
 
@@ -105,7 +105,7 @@ namespace WebApplication1
             }
         }
 
-        public int Nbr_étoiles1
+        public int Nbr_étoiles
         {
             get
             {
@@ -118,7 +118,7 @@ namespace WebApplication1
             }
         }
 
-        public bool État1
+        public bool État
         {
             get
             {
@@ -131,7 +131,7 @@ namespace WebApplication1
             }
         }
 
-        public string Nom1
+        public string Nom
         {
             get
             {
@@ -144,7 +144,7 @@ namespace WebApplication1
             }
         }
 
-        public string Adresse1
+        public string Adresse
         {
             get
             {
@@ -157,7 +157,7 @@ namespace WebApplication1
             }
         }
 
-        public string Pays1
+        public string Pays
         {
             get
             {
@@ -170,7 +170,7 @@ namespace WebApplication1
             }
         }
 
-        public string Ville1
+        public string Ville
         {
             get
             {
@@ -213,12 +213,12 @@ namespace WebApplication1
         public Hotel(int id, int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres)
         {
             this.Id = id;
-            this.Nbr_étoiles1 = nbr_étoiles;
-            this.État1 = état;
-            this.Nom1 = nom;
-            this.Adresse1 = adresse;
-            this.Pays1 = pays;
-            this.Ville1 = ville;
+            this.Nbr_étoiles = nbr_étoiles;
+            this.État = état;
+            this.Nom = nom;
+            this.Adresse = adresse;
+            this.Pays = pays;
+            this.Ville = ville;
             this.Num_tel = num_tel;
             this.Chambres = chambres;
         }
