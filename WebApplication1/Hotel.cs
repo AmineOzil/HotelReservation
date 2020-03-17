@@ -14,81 +14,17 @@ namespace WebApplication1
         private List<Chambre> chambres;
 
 
-        public int Nbr_étoiles
+
+        public List<Chambre> Chambres
         {
             get
             {
-                return Nbr_étoiles;
+                return chambres;
             }
 
             set
             {
-                Nbr_étoiles = value;
-            }
-        }
-
-        public bool État
-        {
-            get
-            {
-                return État;
-            }
-
-            set
-            {
-                État = value;
-            }
-        }
-
-        public string Nom
-        {
-            get
-            {
-                return Nom;
-            }
-
-            set
-            {
-                Nom = value;
-            }
-        }
-
-        public string Adresse
-        {
-            get
-            {
-                return Adresse;
-            }
-
-            set
-            {
-                Adresse = value;
-            }
-        }
-
-        public string Pays
-        {
-            get
-            {
-                return Pays;
-            }
-
-            set
-            {
-                Pays = value;
-            }
-        }
-
-        public string Ville
-        {
-            get
-            {
-                return Ville;
-            }
-
-            set
-            {
-                Ville = value;
+                chambres = value;
             }
         }
 
@@ -196,19 +132,6 @@ namespace WebApplication1
             }
         }
 
-        public List<Chambre> Chambres
-        {
-            get
-            {
-                return chambres;
-            }
-
-            set
-            {
-                chambres = value;
-            }
-        }
-
 
         public Hotel(int id, int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres)
         {
@@ -224,14 +147,14 @@ namespace WebApplication1
         }
         public void addChambre(Chambre chambre)
         {
-            chambres.Add(chambre);
+            Chambres.Add(chambre);
         }
         public void etat(DateTime checkIn,DateTime checkOut)
         {
-            foreach (Chambre chambre in chambres){
+            foreach (Chambre chambre in Chambres){
                 if (chambre.estDisponible(checkIn,checkOut))
                 {
-                    état = true;
+                    État = true;
                     break;
                 }
             }

@@ -22,30 +22,69 @@ namespace WebApplication1
             this.id_client = id_client;
         }
 
-        public int id
+        public int Id
         {
-            get => id;
-            set => id = value;
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
         }
-        public DateTime checkIn
+
+        public DateTime CheckIn
         {
-            get => checkIn;
-            set => checkIn = value;
+            get
+            {
+                return checkIn;
+            }
+
+            set
+            {
+                checkIn = value;
+            }
         }
-        public DateTime checkOut
+
+        public DateTime CheckOut
         {
-            get => checkOut;
-            set => checkOut = value;
+            get
+            {
+                return checkOut;
+            }
+
+            set
+            {
+                checkOut = value;
+            }
         }
-        public int prix_res
+
+        public int Prix_res
         {
-            get => prix_res;
-            set => prix_res = value;
+            get
+            {
+                return prix_res;
+            }
+
+            set
+            {
+                prix_res = value;
+            }
         }
-        public int id_client
+
+        public int Id_client
         {
-            get => id_client;
-            set => id_client = value;
+            get
+            {
+                return id_client;
+            }
+
+            set
+            {
+                id_client = value;
+            }
         }
     }
 }
