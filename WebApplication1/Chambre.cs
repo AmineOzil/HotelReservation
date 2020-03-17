@@ -12,28 +12,104 @@ namespace WebApplication1
         private int prix;
         private List<Reservation> reservations;
 
+        public int Numero
+        {
+            get
+            {
+                return numero;
+            }
 
+            set
+            {
+                numero = value;
+            }
+        }
+
+        public int Etage
+        {
+            get
+            {
+                return etage;
+            }
+
+            set
+            {
+                etage = value;
+            }
+        }
+
+        public string Type
+        {
+            get
+            {
+                return type;
+            }
+
+            set
+            {
+                type = value;
+            }
+        }
+
+        public int Nbr_lits
+        {
+            get
+            {
+                return nbr_lits;
+            }
+
+            set
+            {
+                nbr_lits = value;
+            }
+        }
+
+        public int Prix
+        {
+            get
+            {
+                return prix;
+            }
+
+            set
+            {
+                prix = value;
+            }
+        }
+
+        public List<Reservation> Reservations
+        {
+            get
+            {
+                return reservations;
+            }
+
+            set
+            {
+                reservations = value;
+            }
+        }
 
         public Chambre(int numero, int etage, string type, int nbr_lits, int prix)
         {
-            this.numero = numero;
-            this.etage = etage;
-            this.type = type;
-            this.nbr_lits = nbr_lits;
-            this.prix = prix;
+            this.Numero = numero;
+            this.Etage = etage;
+            this.Type = type;
+            this.Nbr_lits = nbr_lits;
+            this.Prix = prix;
         }
 
         public Boolean estDisponible(DateTime checkIn, DateTime checkOut)
         {
             Boolean res = false;
-            reservations = new List<Reservation>();
-            for (int i = 0; i < reservations.Count; i++)
+            Reservations = new List<Reservation>();
+            for (int i = 0; i < Reservations.Count; i++)
             {
-                if (checkIn < reservations[i].CheckIn)
+                if (checkIn < Reservations[i].checkIn)
                 {
-                    if (checkIn < reservations[i].CheckOut)
+                    if (checkIn < Reservations[i].checkOut)
                     {
-                        if (checkOut < reservations[i].CheckOut)
+                        if (checkOut < Reservations[i].checkOut)
                         {
                             res = true;
                             return res;
@@ -59,35 +135,5 @@ namespace WebApplication1
 
         }
 
-        public int Numero
-        {
-            get => numero;
-            set => numero = value;
-        }
-        public int etage
-        {
-            get => etage;
-            set => etage = value;
-        }
-        public string Type
-        {
-            get => type;
-            set => type = value;
-        }
-        public int Nbr_lits
-        {
-            get => nbr_lits;
-            set => nbr_lits = value;
-        }
-        public int Prix
-        {
-            get => prix;
-            set => prix = value;
-        }
-        public List<Reservation> Reservations
-        {
-            get => reservations;
-            set => reservations = value;
-        }
     }
 }
