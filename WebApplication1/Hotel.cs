@@ -226,10 +226,10 @@ namespace WebApplication1
         {
             chambres.Add(chambre);
         }
-        public void etat()
+        public void etat(DateTime checkIn,DateTime checkOut)
         {
             foreach (Chambre chambre in chambres){
-                if (chambre.estDisponible())
+                if (chambre.estDisponible(checkIn,checkOut))
                 {
                     état = true;
                     break;
