@@ -23,7 +23,7 @@ namespace WebApplication1
             this.prix = prix;
         }
 
-        public Boolean estDisponible(this, DateTime checkIn, DateTime checkOut)
+        public Boolean estDisponible(DateTime checkIn, DateTime checkOut)
         {
             Boolean res = false;
             reservations = new List<Reservation>();
