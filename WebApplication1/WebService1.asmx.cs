@@ -29,8 +29,12 @@ namespace WebApplication1
                 Chambre ch4 = new Chambre(105, 1, "Duplex", 4, 150);
                 List<Chambre> chambresHilton = new List<Chambre>();
             chambresHilton.Add(ch);
+            chambresHilton.Add(ch2);
+            chambresHilton.Add(ch3);
+            chambresHilton.Add(ch4);
 
-        Hotel hilton = new Hotel(5, true, "Hilton", "Madrid", "Espagne", "Madrid", "+34 911 53 40 00", chambresHilton);
+
+            Hotel hilton = new Hotel(5, true, "Hilton", "Madrid", "Espagne", "Madrid", "+34 911 53 40 00", chambresHilton);
             hotels.Add(hilton);
         }
 

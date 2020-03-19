@@ -98,7 +98,10 @@ namespace WebApplication1
             this.Nbr_lits = nbr_lits;
             this.Prix = prix;
         }
+        public Chambre()
+        {
 
+        }
         public Boolean estDisponible(DateTime checkIn, DateTime checkOut)
         {
             Boolean dispo = true;

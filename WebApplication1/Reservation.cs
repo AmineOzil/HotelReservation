@@ -13,6 +13,11 @@ namespace WebApplication1
         private int prix_res;
         private int id_client;
 
+        public Reservation()
+        {
+
+        }
+
         public Reservation(DateTime checkIn, DateTime checkOut, int prix_res, int id_client)
         {
             this.Id++;
