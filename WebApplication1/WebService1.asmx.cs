@@ -32,10 +32,22 @@ namespace WebApplication1
             chambresHilton.Add(ch2);
             chambresHilton.Add(ch3);
             chambresHilton.Add(ch4);
-
+            Chambre ch11 = new Chambre(102, 1, "Simple", 1, 10);
+            Chambre ch12 = new Chambre(103, 1, "Simple", 1, 20);
+            Chambre ch13 = new Chambre(104, 1, "Double", 2, 32);
+            Chambre ch14 = new Chambre(105, 1, "Duplex", 4, 80);
+            List<Chambre> chambressheraton = new List<Chambre>();
+            chambressheraton.Add(ch1);
+            chambressheraton.Add(ch12);
+            chambressheraton.Add(ch13);
+            chambressheraton.Add(ch14);
 
             Hotel hilton = new Hotel(5, true, "Hilton", "Madrid", "Espagne", "Madrid", "+34 911 53 40 00", chambresHilton);
+            Hotel sheraton = new Hotel(5, true, "Sheraton", "Montpellier", "France", "Montpellier", "+33 911 53 40 00", chambressheraton);
+
             hotels.Add(hilton);
+            hotels.Add(sheraton);
+
         }
 
         [WebMethod]
@@ -50,10 +62,13 @@ namespace WebApplication1
             DateTime cout= DateTime.Parse(checkout);
 
             foreach (Hotel hotel in hotels)
-            {
-               if (hotel.etat(cin,cout))
+            {  if (hotel.Ville.Equals(ville))
                 {
-                    hotelsDispo.Add(hotel);
+                    if (hotel.etat(cin, cout))
+                    {
+                        Hotel hoteldispo = new Hotel(hotel, hotel.chambresDispo(prixmin, prixmax));
+                        hotelsDispo.Add(hoteldispo);
+                    }
                 }
             }
             return hotelsDispo;

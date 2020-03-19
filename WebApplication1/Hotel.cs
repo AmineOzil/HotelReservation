@@ -136,7 +136,17 @@ namespace WebApplication1
             }
         }
 
-
+        public Hotel (Hotel hotel,List<Chambre> chambres)
+        {
+            this.Nbr_étoiles = hotel.Nbr_étoiles;
+            this.État = hotel.État;
+            this.Nom = hotel.Nom;
+            this.Adresse = hotel.Adresse;
+            this.Pays = hotel.Pays;
+            this.Ville = hotel.Ville;
+            this.Num_tel = hotel.Num_tel;
+            this.Chambres = chambres;
+        }
         public Hotel(int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres)
         {
             this.Id++;
@@ -162,6 +172,14 @@ namespace WebApplication1
                 }
             }
             return false;
+        }
+        public List<Chambre> chambresDispo(int prixMin,int prixMax)
+        { List<Chambre> chambresDispo=new List<Chambre>();
+            foreach (Chambre ch in chambres)
+            {
+                if (ch.Prix >= prixMin && ch.Prix <= prixMax) chambresDispo.Add(ch);
+            }
+            return chambresDispo;
         }
     }
 }
