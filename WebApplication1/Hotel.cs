@@ -163,6 +163,7 @@ namespace WebApplication1
         {
             Chambres.Add(chambre);
         }
+        /*Non utilisée jusqu'à maintenant
         public bool etat(DateTime checkIn,DateTime checkOut)
         {
             foreach (Chambre chambre in Chambres){
@@ -172,7 +173,7 @@ namespace WebApplication1
                 }
             }
             return false;
-        }
+        }*/
         public List<Chambre> chambresDispo(DateTime cin,DateTime cout, int prixMin,int prixMax)
         { List<Chambre> chambresDispo=new List<Chambre>();
             foreach (Chambre ch in chambres)
