@@ -173,10 +173,10 @@ namespace WebApplication1
             }
             return false;
         }
-        public List<Chambre> chambresDispo(int prixMin,int prixMax)
+        public List<Chambre> chambresDispo(DateTime cin,DateTime cout, int prixMin,int prixMax)
         { List<Chambre> chambresDispo=new List<Chambre>();
             foreach (Chambre ch in chambres)
-            {
+            {   if (ch.estDisponible(cin,cout))
                 if (ch.Prix >= prixMin && ch.Prix <= prixMax) chambresDispo.Add(ch);
             }
             return chambresDispo;

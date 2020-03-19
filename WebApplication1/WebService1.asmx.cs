@@ -19,16 +19,21 @@ namespace WebApplication1
     {
         public static List<Hotel> hotels=new List<Hotel>();
        
-      
+       
         public void initialise()
         {
              Chambre ch = new Chambre(101, 1, "Simple", 1, 35);
+            DateTime dt1 = DateTime.Parse("12/06/2020 12:00");
+            DateTime dt2 = DateTime.Parse("18/06/2020 14:00");
+            Reservation res = new Reservation(dt1, dt2,120,4);
+            ch.ajouterReservation(res);
                 Chambre ch1 = new Chambre(102, 1, "Simple", 1, 35);
                 Chambre ch2 = new Chambre(103, 1, "Simple", 1, 35);
                 Chambre ch3 = new Chambre(104, 1, "Double", 2, 60);
                 Chambre ch4 = new Chambre(105, 1, "Duplex", 4, 150);
                 List<Chambre> chambresHilton = new List<Chambre>();
             chambresHilton.Add(ch);
+            chambresHilton.Add(ch1);
             chambresHilton.Add(ch2);
             chambresHilton.Add(ch3);
             chambresHilton.Add(ch4);
@@ -66,7 +71,7 @@ namespace WebApplication1
                 {
                     if (hotel.etat(cin, cout))
                     {
-                        Hotel hoteldispo = new Hotel(hotel, hotel.chambresDispo(prixmin, prixmax));
+                        Hotel hoteldispo = new Hotel(hotel, hotel.chambresDispo(cin,cout,prixmin, prixmax));
                         hotelsDispo.Add(hoteldispo);
                     }
                 }
