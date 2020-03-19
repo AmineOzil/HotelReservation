@@ -7,19 +7,19 @@ namespace WebApplication1
 {
     public class Reservation
     {
-        private int id;
+        private static int id;
         private DateTime checkIn;
         private DateTime checkOut;
         private int prix_res;
         private int id_client;
 
-        public Reservation(int id, DateTime checkIn, DateTime checkOut, int prix_res, int id_client)
+        public Reservation(DateTime checkIn, DateTime checkOut, int prix_res, int id_client)
         {
-            this.id = id;
+            this.Id++;
             this.checkIn = checkIn;
             this.checkOut = checkOut;
             this.prix_res = prix_res;
-            this.id_client = id_client;
+            this.Id_client = id_client;
         }
 
         public int Id

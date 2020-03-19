@@ -10,7 +10,7 @@ namespace WebApplication1
         private String type;
         private int nbr_lits;
         private int prix;
-        private List<Reservation> reservations;
+        private List<Reservation> reservations=new List<Reservation>();
 
         public int Numero
         {
@@ -101,38 +101,31 @@ namespace WebApplication1
 
         public Boolean estDisponible(DateTime checkIn, DateTime checkOut)
         {
-            Boolean res = false;
-            Reservations = new List<Reservation>();
+            Boolean dispo = true;
             for (int i = 0; i < Reservations.Count; i++)
             {
-                if (checkIn < Reservations[i].checkIn)
+                if (checkIn < Reservations[i].CheckOut)
                 {
-                    if (checkIn < Reservations[i].checkOut)
-                    {
-                        if (checkOut < Reservations[i].checkOut)
+                        if (checkIn >= Reservations[i].CheckIn)
                         {
-                            res = true;
-                            return res;
-                        }
-                        else
-                        {
-                            return res;
-                        }
-                    }
-                    else
+                            dispo = false;
+                            return dispo;
+                        } else if (checkOut>Reservations[i].CheckIn)
                     {
-                        return res;
+                        dispo = false;
+                        return dispo;
                     }
-                }
-                else
-                {
-                    res = true;
-                    return res;
+                
                 }
 
             }
-            return res;
+            return dispo;
 
+        }
+        public void ajouterReservation(Reservation r)
+        {
+            if(estDisponible(r.CheckIn,r.CheckOut))
+            reservations.Add(r);
         }
 
     }

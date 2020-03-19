@@ -8,12 +8,16 @@ namespace WebApplication1
 {
     public class Hotel
     {
-        private int id, nbr_étoiles; //id pour identifier l'hôtel et nbr_étoiles pour connaitre la catégorie de l'hôtel
+        private static int id=0; //pour identifier l'hôtel,static pour qu'il soit autoincrémenté
+        private int nbr_étoiles; //pour connaitre la catégorie de l'hôtel
         private bool état; //état pour voir si l'hôtel est plein ou il y'a une disponibilité
         private String nom,adresse,pays,ville,num_tel; // nom de l'hôtel, son adresse, son pays, sa ville, son num_tel
         private List<Chambre> chambres;
 
+        public Hotel()
+        {
 
+        }
 
         public List<Chambre> Chambres
         {
@@ -133,9 +137,9 @@ namespace WebApplication1
         }
 
 
-        public Hotel(int id, int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres)
+        public Hotel(int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres)
         {
-            this.Id = id;
+            this.Id++;
             this.Nbr_étoiles = nbr_étoiles;
             this.État = état;
             this.Nom = nom;
@@ -149,15 +153,15 @@ namespace WebApplication1
         {
             Chambres.Add(chambre);
         }
-        public void etat(DateTime checkIn,DateTime checkOut)
+        public bool etat(DateTime checkIn,DateTime checkOut)
         {
             foreach (Chambre chambre in Chambres){
                 if (chambre.estDisponible(checkIn,checkOut))
                 {
-                    État = true;
-                    break;
+                    return true;
                 }
             }
+            return false;
         }
     }
 }
