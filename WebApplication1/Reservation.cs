@@ -83,12 +83,12 @@ namespace WebApplication1
         {
             get
             {
-                return Client;
+                return client;
             }
 
             set
             {
-                Client = value;
+                client = value;
             }
         }
 

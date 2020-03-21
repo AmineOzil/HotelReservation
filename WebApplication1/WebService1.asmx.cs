@@ -78,8 +78,34 @@ namespace WebApplication1
             return hotelsDispo;
         }
         [WebMethod]
-        public String reserverChambres()
+        public String reserverChambres(int id_hotel,String numero_chambres,String checkin,String checkout,String nom_client,String prenom_client,String num_passeport,String num_tel,String date_naissance,String num_carte,String cvv,String type,String date_expiration)
         {
+            if (hotels.Count == 0)
+                initialise();
+            Hotel h = hotels.Find(hotel => hotel.Id == id_hotel);
+            String[] numchambres=numero_chambres.Split(';'); // On utilise ; comme séparateur entre chaque deux numéros de chambre à réserver et là on récupère tous ces numéros 
+            List<Chambre> chambres_à_reserver=new List<Chambre>();
+            CarteCredit carte = new CarteCredit(num_carte,cvv,type,date_expiration);
+            Client client = new Client(nom_client,prenom_client,num_passeport,num_tel,DateTime.Parse(date_naissance),carte);
+            DateTime checkIn = DateTime.Parse(checkin);
+            DateTime checkOut = DateTime.Parse(checkout);
+            int nombre_jours_sejour = (checkOut - checkIn).Days; //Le nombre total des jours de séjour
+            if (numchambres.Count() == 0)
+            {
+                chambres_à_reserver.Add(h.Chambres.Find(chambre => chambre.Numero == int.Parse(numero_chambres)));
+            }
+            else
+            foreach (String num in numchambres)
+            {
+                Console.WriteLine(num);
+                chambres_à_reserver.Add(h.Chambres.Find(chambre => chambre.Numero == int.Parse(num))); 
+            }
+            int prix_reservation = 0;
+            foreach (Chambre chambre in chambres_à_reserver)
+            {
+                prix_reservation = chambre.Prix*nombre_jours_sejour;
+                chambre.ajouterReservation(new Reservation(checkIn, checkOut, prix_reservation, client));
+            }
             return "Votre réservation a été confirmée";
         }
 

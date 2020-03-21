@@ -11,6 +11,10 @@ namespace WebApplication1
         private DateTime date_naissance;
         private CarteCredit carte;
 
+        public Client()
+        {
+
+        }
         public Client(string nom, string prenom, string numPasseport, string num_tel, DateTime date_naissance,CarteCredit carte)
         {
             this.Nom = nom;

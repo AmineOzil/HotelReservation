@@ -9,6 +9,10 @@ namespace WebApplication1
     {
         private String num_carte, cvv, type,date_expiration;
 
+        public CarteCredit()
+        {
+
+        }
         public CarteCredit(string num_carte, string cvv, string type, String date_expiration)
         {
             this.Num_carte = num_carte;
