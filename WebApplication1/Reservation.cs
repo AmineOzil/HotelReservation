@@ -11,21 +11,20 @@ namespace WebApplication1
         private DateTime checkIn;
         private DateTime checkOut;
         private int prix_res;
-        
-        Client client;
+        private int id_client;
 
         public Reservation()
         {
 
         }
 
-        public Reservation(DateTime checkIn, DateTime checkOut, int prix_res, Client client)
+        public Reservation(DateTime checkIn, DateTime checkOut, int prix_res, int id_client)
         {
             this.Id++;
             this.checkIn = checkIn;
             this.checkOut = checkOut;
             this.prix_res = prix_res;
-            this.client = client;
+            this.Id_client = id_client;
         }
 
         public int Id
@@ -80,6 +79,17 @@ namespace WebApplication1
             }
         }
 
-      
+        public int Id_client
+        {
+            get
+            {
+                return id_client;
+            }
+
+            set
+            {
+                id_client = value;
+            }
+        }
     }
 }
