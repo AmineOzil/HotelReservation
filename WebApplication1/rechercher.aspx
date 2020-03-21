@@ -32,7 +32,7 @@
                 <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"></path>
               </svg>
             </div>
-            <input class="datepicker" id="depart" type="text" placeholder="29 Aug 2018" />
+            <input class="datepicker" id="depart" type="text" placeholder="26 March 2020" />
           </div>
           <div class="input-field third-wrap">
             <div class="icon-wrap">
@@ -64,10 +64,23 @@
     <script src="js/extention/choices.js"></script>
     <script src="js/extention/flatpickr.js"></script>
     <script>
-      flatpickr(".datepicker",
-      {});
+        StartDate = new Date("March 20, 2020");
+      flatpickr(".datepicker[id=depart]",
+      {
+          minDate:StartDate
+      }
+      );
+
+      EndDate = StartDate+24*60*60*1000;
+      flatpickr(".datepicker[id=return]",
+      {
+          minDate: EndDate
+      }
+      );
+
 
     </script>
+
     <script>
       const choices = new Choices('[data-trigger]',
       {
