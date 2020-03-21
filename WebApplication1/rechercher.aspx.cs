@@ -16,13 +16,15 @@ namespace WebApplication1
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-/*            System.Windows.Forms.MessageBox.Show("Date : " + this.Calendar1.SelectedDate.ToShortDateString());
-*/        }
+            /*            System.Windows.Forms.MessageBox.Show("Date : " + this.Calendar2.SelectedDate.ToShortDateString());
+             *            System.Windows.Forms.MessageBox.Show("Date : " + this.Calendar1.SelectedDate.ToShortDateString());
+            */
+        }
 
         protected void Calendar2_SelectionChanged(object sender, EventArgs e)
         {
 
-            System.Windows.Forms.MessageBox.Show("Date : " + this.Calendar2.SelectedDate.ToShortDateString());
+            
 
 
         }
