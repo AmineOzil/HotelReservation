@@ -23,17 +23,29 @@ namespace WebApplication1
         {
 
             System.Windows.Forms.MessageBox.Show("Date : " + this.Calendar2.SelectedDate.ToShortDateString());
+            
 
 
         }
         protected void Calendar2_DayRender(object sender, DayRenderEventArgs e)
         {
-            if (e.Day.Date < Convert.ToDateTime(DateTime.Now.ToString()))
+
+            DateTime checkin = DateTime.Now;
+            if (Calendar1.SelectedDate != null)
+            {
+                checkin = Calendar1.SelectedDate;
+            }
+            
+            if (e.Day.Date <= checkin)
             {
                 e.Day.IsSelectable = false;
                 e.Cell.ForeColor = System.Drawing.Color.Gray;
             }
-
+            if (e.Day.Date > Convert.ToDateTime(DateTime.Now.ToString()).AddMonths(6))
+            {
+                e.Day.IsSelectable = false;
+                e.Cell.ForeColor = System.Drawing.Color.Gray;
+            }
 
         }
     }
