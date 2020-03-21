@@ -67,13 +67,10 @@ namespace WebApplication1
             DateTime cout= DateTime.Parse(checkout);
 
             foreach (Hotel hotel in hotels)
-            {  if (hotel.Ville.Equals(ville))
+            {  if (hotel.Ville.Equals(ville) && hotel.etat(cin, cout))
                 {
-                    if (hotel.etat(cin, cout))
-                    {
-                        Hotel hoteldispo = new Hotel(hotel, hotel.chambresDispo(cin,cout,prixmin, prixmax));
-                        hotelsDispo.Add(hoteldispo);
-                    }
+                  Hotel hoteldispo = new Hotel(hotel, hotel.chambresDispo(cin,cout,prixmin, prixmax));
+                  hotelsDispo.Add(hoteldispo);
                 }
             }
             return hotelsDispo;
