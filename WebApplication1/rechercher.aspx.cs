@@ -16,36 +16,26 @@ namespace WebApplication1
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-/*            System.Windows.Forms.MessageBox.Show("Date : " + this.Calendar1.SelectedDate.ToShortDateString());
-*/        }
+            /*            System.Windows.Forms.MessageBox.Show("Date : " + this.Calendar2.SelectedDate.ToShortDateString());
+             *            System.Windows.Forms.MessageBox.Show("Date : " + this.Calendar1.SelectedDate.ToShortDateString());
+            */
+        }
 
         protected void Calendar2_SelectionChanged(object sender, EventArgs e)
         {
 
-            System.Windows.Forms.MessageBox.Show("Date : " + this.Calendar2.SelectedDate.ToShortDateString());
             
 
 
         }
         protected void Calendar2_DayRender(object sender, DayRenderEventArgs e)
         {
+            if (e.Day.Date < Convert.ToDateTime(DateTime.Now.ToString()))
+            {
+                e.Day.IsSelectable = false;
+                e.Cell.ForeColor = System.Drawing.Color.Gray;
+            }
 
-            DateTime checkin = DateTime.Now;
-            if (Calendar1.SelectedDate != null)
-            {
-                checkin = Calendar1.SelectedDate;
-            }
-            
-            if (e.Day.Date <= checkin)
-            {
-                e.Day.IsSelectable = false;
-                e.Cell.ForeColor = System.Drawing.Color.Gray;
-            }
-            if (e.Day.Date > Convert.ToDateTime(DateTime.Now.ToString()).AddMonths(6))
-            {
-                e.Day.IsSelectable = false;
-                e.Cell.ForeColor = System.Drawing.Color.Gray;
-            }
 
         }
     }
