@@ -25,7 +25,7 @@ namespace WebApplication1
              Chambre ch = new Chambre(101, 1, "Simple", 1, 35);
             DateTime dt1 = DateTime.Parse("12/06/2020 12:00");
             DateTime dt2 = DateTime.Parse("18/06/2020 14:00");
-            Reservation res = new Reservation(dt1, dt2,120,4);
+            Reservation res = new Reservation(dt1, dt2,120,new Client("Nassim","Sehout","100123543","+33 424 22 11 43",DateTime.Parse("15/10/1993"),new CarteCredit("453435500343","123","Visa Card","10/23")));
             ch.ajouterReservation(res);
                 Chambre ch1 = new Chambre(102, 1, "Simple", 1, 35);
                 Chambre ch2 = new Chambre(103, 1, "Simple", 1, 35);
@@ -77,6 +77,12 @@ namespace WebApplication1
             }
             return hotelsDispo;
         }
+        [WebMethod]
+        public String reserverChambres()
+        {
+            return "Votre réservation a été confirmée";
+        }
+
 
     }
 

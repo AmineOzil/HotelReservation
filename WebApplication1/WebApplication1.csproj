@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chambre.cs" />
+    <Compile Include="CarteCredit.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Reservation.cs" />
