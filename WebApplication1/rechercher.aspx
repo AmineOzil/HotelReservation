@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="rechercherChambre.aspx.cs" Inherits="ClientApplication.rechercherChambre" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="rechercher.aspx.cs" Inherits="WebApplication1.rechercher" %>
 
 <!DOCTYPE html>
 

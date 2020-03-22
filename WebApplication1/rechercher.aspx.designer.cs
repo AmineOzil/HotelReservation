@@ -7,11 +7,11 @@
 // </généré automatiquement>
 //------------------------------------------------------------------------------
 
-namespace ClientApplication
+namespace WebApplication1
 {
 
 
-    public partial class rechercherChambre
+    public partial class rechercher
     {
     }
 }
