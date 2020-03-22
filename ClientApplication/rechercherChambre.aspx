@@ -64,7 +64,7 @@
             </select>
           </div>-->
           <div class="input-field fifth-wrap">
-            <button class="btn-search" ID="btnSearch" type="button" OnClick="btnSearch_Click()" runat="server">SEARCH</button>
+            <button class="btn-search" ID="btnSearch" type="button" onserverclick="btnSearch_Click" runat="server">SEARCH</button>
           </div>
         </div>
       </form>

@@ -10,6 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApplication", "Client
 		{1226C0FF-9784-4D80-B620-7ACF2B1F6CCB} = {1226C0FF-9784-4D80-B620-7ACF2B1F6CCB}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{A0EAF011-51AE-4F13-A1EC-07FFAC236C62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1226C0FF-9784-4D80-B620-7ACF2B1F6CCB} = {1226C0FF-9784-4D80-B620-7ACF2B1F6CCB}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,10 @@ Global
 		{900D304B-C2F0-424D-AC68-557C9E5397CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{900D304B-C2F0-424D-AC68-557C9E5397CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{900D304B-C2F0-424D-AC68-557C9E5397CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0EAF011-51AE-4F13-A1EC-07FFAC236C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0EAF011-51AE-4F13-A1EC-07FFAC236C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0EAF011-51AE-4F13-A1EC-07FFAC236C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0EAF011-51AE-4F13-A1EC-07FFAC236C62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
