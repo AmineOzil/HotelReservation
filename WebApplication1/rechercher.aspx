@@ -15,7 +15,7 @@
     <div class="s002">
       <form>
         <fieldset>
-          <legend>SEARCH HOTEL</legend>
+          <legend>ENOVBM Tourism</legend>
         </fieldset>
         <div class="inner-form">
           <div class="input-field first-wrap">
@@ -24,7 +24,23 @@
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
               </svg>
             </div>
-            <input id="search" type="text" placeholder="What are you looking for?" />
+            <input id="search" type="text" placeholder="Ville" />
+          </div>
+          <div class="input-field first-wrap">
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+              </svg>
+            </div>
+            <input id="search" type="text" placeholder="Prix min/nuit" />
+          </div>
+                      <div class="input-field first-wrap">
+            <div class="icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+              </svg>
+            </div>
+            <input id="search" type="text" placeholder="Prix max/nuit" />
           </div>
           <div class="input-field second-wrap">
             <div class="icon-wrap">
@@ -32,17 +48,9 @@
                 <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"></path>
               </svg>
             </div>
-            <input class="datepicker" id="depart" type="text" placeholder="26 March 2020" />
+            <input class="datepicker" id="depart" type="text" placeholder="Veuillez selectioner vos dates de séjour" />
           </div>
-          <div class="input-field third-wrap">
-            <div class="icon-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"></path>
-              </svg>
-            </div>
-            <input class="datepicker" id="return" type="text" placeholder="30 Aug 2018" />
-          </div>
-          <div class="input-field fouth-wrap">
+        <!--  <div class="input-field fouth-wrap">
             <div class="icon-wrap">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
@@ -54,7 +62,7 @@
               <option>4 Adults</option>
               <option>5 Adults</option>
             </select>
-          </div>
+          </div>-->
           <div class="input-field fifth-wrap">
             <button class="btn-search" type="button">SEARCH</button>
           </div>
@@ -64,19 +72,18 @@
     <script src="js/extention/choices.js"></script>
     <script src="js/extention/flatpickr.js"></script>
     <script>
-        StartDate = new Date("March 20, 2020");
       flatpickr(".datepicker[id=depart]",
-      {
-          minDate:StartDate
-      }
+            {
+                mode: "range",
+                minDate: "today",
+                dateFormat: "d/m/Y"
+            }
       );
 
-      EndDate = StartDate+24*60*60*1000;
-      flatpickr(".datepicker[id=return]",
-      {
-          minDate: EndDate
-      }
-      );
+      //StartDate = new Date("March 20, 2020");
+      /*EndDate = new Date();
+      EndDate = this.flatpickr("#depart", {});
+      EndDate = StartDate.getDate + 1;*/
 
 
     </script>

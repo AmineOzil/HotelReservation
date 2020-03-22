@@ -1625,8 +1625,8 @@ span.flatpickr-weekday {
 }
 
 .s002 form .inner-form .input-field.second-wrap {
-  min-width: 190px;
-  max-width: 190px;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
 }
 
 .s002 form .inner-form .input-field.third-wrap {
