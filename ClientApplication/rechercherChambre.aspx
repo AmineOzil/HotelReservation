@@ -72,28 +72,28 @@
     <script src="js/extention/choices.js"></script>
     <script src="js/extention/flatpickr.js"></script>
     <script>
-        flatpickr(".datepicker[id=depart]",
+      flatpickr(".datepicker[id=depart]",
             {
                 mode: "range",
                 minDate: "today",
                 dateFormat: "d/m/Y"
             }
-        );
+      );
 
       //StartDate = new Date("March 20, 2020");
-        /*EndDate = new Date();
-        EndDate = this.flatpickr("#depart", {});
-        EndDate = StartDate.getDate + 1;*/
+      /*EndDate = new Date();
+      EndDate = this.flatpickr("#depart", {});
+      EndDate = StartDate.getDate + 1;*/
 
 
     </script>
 
     <script>
-        const choices = new Choices('[data-trigger]',
-            {
-                searchEnabled: false,
-                itemSelectText: '',
-            });
+      const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
 
     </script>
   </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
