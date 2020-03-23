@@ -46,7 +46,7 @@
 </div> <!-- col // -->
 <div class="col-md-4">
 	<figure class="card card-product">
-		<div class="img-wrap"><img src="https://www.hotel-diana-dauphine.com/media/cache/jadro_resize/rc/rhCiPkJe1582096951/jadroRoot/medias/5658345e8f976/chambre-1.jpg"> </div>
+		<div class="img-wrap"><img src="https://www.cantemerle-hotel-vence.com/wp-content/uploads/2015/09/chambre-cantemerle-hotel-vence_41.jpg"> </div>
 		<figcaption class="info-wrap">
 				<h4 class="title">Good product</h4>
 				<p class="desc">Some small description goes here</p>
@@ -58,29 +58,13 @@
 		<div class="bottom-wrap">
 				<a href="" class="btn btn-sm btn-primary float-right">Order Now</a>	
 				<div class="price-wrap h5">
-					<span class="price-new"  id="test" runat="server">$1280</span> <del class="price-old"></del>
+					<span class="price-new"  id="test" runat="server"></span> <del class="price-old"></del>
 				</div> <!-- price-wrap.// -->
 		</div> <!-- bottom-wrap.// -->
 	</figure>
 </div> <!-- col // -->
-<div class="col-md-4">
-	<figure class="card card-product">
-		<div class="img-wrap"><img src="https://www.hotel-diana-dauphine.com/media/cache/jadro_resize/rc/rhCiPkJe1582096951/jadroRoot/medias/5658345e8f976/chambre-1.jpg"></div>
-		<figcaption class="info-wrap">
-				<h4 class="title">Product name goes here</h4>
-				<p class="desc">Some small description goes here</p>
-				<div class="rating-wrap">
-					<div class="label-rating">132 reviews</div>
-					<div class="label-rating">154 orders </div>
-				</div> <!-- rating-wrap.// -->
-		</figcaption>
-		<div class="bottom-wrap">
-				<a href="" class="btn btn-sm btn-primary float-right">Order Now</a>	
-				<div class="price-wrap h5">
-					<span class="price-new">$1280</span> <del class="price-old">$1980</del>
-				</div> <!-- price-wrap.// -->
-		</div> <!-- bottom-wrap.// -->
-	</figure>
+<div class="col-md-4" runat="server" id="hotel">
+
 </div> <!-- col // -->
 </div> <!-- row.// -->
 

@@ -10,6 +10,7 @@ namespace WebApplication1
         private String type;
         private int nbr_lits;
         private int prix;
+        private String image; 
         private List<Reservation> reservations=new List<Reservation>();
 
         public int Numero
@@ -90,13 +91,27 @@ namespace WebApplication1
             }
         }
 
-        public Chambre(int numero, int etage, string type, int nbr_lits, int prix)
+        public string Image
+        {
+            get
+            {
+                return image;
+            }
+
+            set
+            {
+                image = value;
+            }
+        }
+
+        public Chambre(int numero, int etage, string type, int nbr_lits, int prix,String image)
         {
             this.Numero = numero;
             this.Etage = etage;
             this.Type = type;
             this.Nbr_lits = nbr_lits;
             this.Prix = prix;
+            this.Image = image;
         }
         public Chambre()
         {

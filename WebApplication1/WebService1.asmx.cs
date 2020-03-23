@@ -22,25 +22,25 @@ namespace WebApplication1
        
         public void initialise()
         {
-             Chambre ch = new Chambre(101, 1, "Simple", 1, 35);
+             Chambre ch = new Chambre(101, 1, "Simple", 1, 35, "https://www.thonhotels.com/globalassets/hoteller/norge/haugesund/thon-hotel-saga/romtyper/standard-room-single/thon-hotel-saga-standard-room-single-1.jpg?width=1100&height=550&mode=crop&quality=80");
             DateTime dt1 = DateTime.Parse("12/06/2020 12:00");
             DateTime dt2 = DateTime.Parse("18/06/2020 14:00");
             Reservation res = new Reservation(dt1, dt2,120,new Client("Nassim","Sehout","100123543","+33 424 22 11 43",DateTime.Parse("15/10/1993"),new CarteCredit("453435500343","123","Visa Card","10/23")));
             ch.ajouterReservation(res);
-                Chambre ch1 = new Chambre(102, 1, "Simple", 1, 35);
-                Chambre ch2 = new Chambre(103, 1, "Simple", 1, 35);
-                Chambre ch3 = new Chambre(104, 1, "Double", 2, 60);
-                Chambre ch4 = new Chambre(105, 1, "Duplex", 4, 150);
+                Chambre ch1 = new Chambre(102, 1, "Simple", 1, 35, "https://www.thonhotels.com/globalassets/hoteller/norge/haugesund/thon-hotel-saga/romtyper/standard-room-single/thon-hotel-saga-standard-room-single-1.jpg?width=1100&height=550&mode=crop&quality=80");
+                Chambre ch2 = new Chambre(103, 1, "Simple", 1, 35, "https://www.thonhotels.com/globalassets/hoteller/norge/haugesund/thon-hotel-saga/romtyper/standard-room-single/thon-hotel-saga-standard-room-single-1.jpg?width=1100&height=550&mode=crop&quality=80");
+                Chambre ch3 = new Chambre(104, 1, "Double", 2, 60, "https://lh3.googleusercontent.com/proxy/KwP-elt55OSSFIl9mL6rNLkBHLgqN5rwDsFo-3YN44lJU1koBysYrZqeXv9xxzeu2HyPtDimHZaHjDby09rKPvLOlunl_69yVuFJ1SYEs5wCXIc6ZxfareT0dQp_A0kaLb09dM8z_wRiTvVVDwTT9N8byQ");
+                Chambre ch4 = new Chambre(105, 1, "Duplex", 4, 150, "https://806d2bf04cf5fa54997a-e7c5344b3b84eec5da7b51276407b19c.ssl.cf1.rackcdn.com/responsive/1536/806d2bf04cf5fa54997a-e7c5344b3b84eec5da7b51276407b19c.ssl.cf1.rackcdn.com/responsive/4:3/806d2bf04cf5fa54997a-e7c5344b3b84eec5da7b51276407b19c.ssl.cf1.rackcdn.com/u/conservatorium/rooms/superior-guest-room/Conservatorium_Hotel_Duplex_Guestroom--1-.jpg");
                 List<Chambre> chambresHilton = new List<Chambre>();
             chambresHilton.Add(ch);
             chambresHilton.Add(ch1);
             chambresHilton.Add(ch2);
             chambresHilton.Add(ch3);
             chambresHilton.Add(ch4);
-            Chambre ch11 = new Chambre(102, 1, "Simple", 1, 10);
-            Chambre ch12 = new Chambre(103, 1, "Simple", 1, 20);
-            Chambre ch13 = new Chambre(104, 1, "Double", 2, 32);
-            Chambre ch14 = new Chambre(105, 1, "Duplex", 4, 80);
+            Chambre ch11 = new Chambre(102, 1, "Simple", 1, 10, "https://www.lafenouillere.com/seize/0x500/rooms/chambre-simple-hotel-groupe-hebergement-accueil-randonneurs-cyclisme-gard-ventoux-camargue.JPG");
+            Chambre ch12 = new Chambre(103, 1, "Simple", 1, 20, "https://www.hotel-leflorin-rennes.fr/images/bedroom-pictures/chambre-simple-new-1920.jpg");
+            Chambre ch13 = new Chambre(104, 1, "Double", 2, 32, "https://d11t49axgioj1l.cloudfront.net/_novaimg/4226226-1323135_0_221_2000_1113_925_515.jpg");
+            Chambre ch14 = new Chambre(105, 1, "Duplex", 4, 80, "https://www.cantemerle-hotel-vence.com/wp-content/uploads/2015/09/chambre-cantemerle-hotel-vence_41.jpg");
             List<Chambre> chambressheraton = new List<Chambre>();
             chambressheraton.Add(ch1);
             chambressheraton.Add(ch12);
