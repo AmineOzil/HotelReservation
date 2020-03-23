@@ -39,8 +39,11 @@ namespace ClientApp
             System.Diagnostics.Debug.WriteLine("aya bele3 " + result.ElementAt(0).Chambres.ElementAt(3).Numero);
             using (var stringwriter = new System.IO.StringWriter())
             {
-                var serializer = new XmlSerializer(typeof(ClientApp.ServiceHotel.Hotel));
-                serializer.Serialize(stringwriter, this);
+                var serializer = new XmlSerializer(typeof(ClientApp.ServiceHotel.Hotel[]));
+                System.Diagnostics.Debug.WriteLine("Avant création de l'objet");
+                List<ServiceHotel.Hotel> hotel = new List<ServiceHotel.Hotel>();
+                serializer.Serialize(stringwriter, result);
+                System.Diagnostics.Debug.WriteLine("Nom de l'hotel  "+result[0].Nom);
                 // Create the XmlDocument.
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(stringwriter.ToString());

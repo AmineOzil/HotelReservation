@@ -80,6 +80,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="rechercherChambre.aspx" />
+    <Content Include="resultats.aspx" />
     <Content Include="Web.config" />
     <None Include="Connected Services\ServiceHotel\WebService1.wsdl" />
   </ItemGroup>
@@ -96,6 +97,13 @@
     </Compile>
     <Compile Include="rechercherChambre.aspx.designer.cs">
       <DependentUpon>rechercherChambre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="resultats.aspx.cs">
+      <DependentUpon>resultats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resultats.aspx.designer.cs">
+      <DependentUpon>resultats.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
