@@ -65,7 +65,7 @@
 </div> <!-- col // -->
 <div class="col-md-4" runat="server" id="hotel">
 
-</div> <!-- col // -->
+</div> <!-- col // --> 
 </div> <!-- row.// -->
 
 
