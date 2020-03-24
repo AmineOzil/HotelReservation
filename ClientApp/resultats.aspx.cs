@@ -12,8 +12,6 @@ namespace ClientApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ServiceHotel.WebService1SoapClient client = new ServiceHotel.WebService1SoapClient();
-            Page lastPage = (Page)Context.Handler;
             //test.InnerHtml = "Testing";
             
             ClientApp.ServiceHotel.Hotel[] result2 = (ClientApp.ServiceHotel.Hotel[])Session["s1"];
@@ -24,7 +22,7 @@ namespace ClientApp
 
                 for (int i = 0; i < result2.ElementAt(j).Chambres.Count(); i++)
                 {
-                    nassims += "<div class=\"col-md-4\" runat=\"server\"> <figure class=\"card card-product\"><div class=\"img-wrap\"><img src = \"https://www.hotel-diana-dauphine.com/media/cache/jadro_resize/rc/rhCiPkJe1582096951/jadroRoot/medias/5658345e8f976/chambre-1.jpg\" ></div><figcaption class=\"info-wrap\"><h4 class=\"title\">" + result2.ElementAt(j).Chambres.ElementAt(i).Numero + "</h4><p class=\"desc\">Some small description goes here</p><div class=\"rating-wrap\"><div class=\"label-rating\">132 reviews</div><div class=\"label-rating\">154 orders</div></div> </figcaption><div class=\"bottom-wrap\"><a href = \"\" class=\"btn btn-sm btn-primary float-right\">Order Now</a><div class=\"price-wrap h5\"><span class=\"price-new\">$" + result2.ElementAt(j).Chambres.ElementAt(i).Prix + "</span> <del class=\"price-old\">$1980</del></div> </div></figure> </div>";
+                    nassims += "<div class=\"col-md-4\" runat=\"server\"> <figure class=\"card card-product\"><div class=\"img-wrap\"><img src = \""+ result2.ElementAt(j).Chambres.ElementAt(i).Image + "\" ></div><figcaption class=\"info-wrap\"><h4 class=\"title\">" + result2.ElementAt(j).Nom + "</h4><p class=\"desc\"> Chambre "+ result2.ElementAt(j).Chambres.ElementAt(i).Type + "</p><div class=\"rating-wrap\"></figcaption><div class=\"bottom-wrap\"><a href = \"\" class=\"btn btn-sm btn-primary float-right\"> Réserver</a><div class=\"price-wrap h5\"><span class=\"price-new\">$" + result2.ElementAt(j).Chambres.ElementAt(i).Prix + "</span></figure> </div>";
                 }
                 nassims += "</div>";
             }

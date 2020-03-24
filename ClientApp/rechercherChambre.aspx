@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="rechercherChambre.aspx.cs" Inherits="ClientApp.rechercherChambre" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="rechercherChambre.aspx.cs" Inherits="ClientApp.rechercherChambre" EnableEventValidation="false"%>
 
 <!DOCTYPE html>
 
@@ -7,11 +7,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
+
+
   </head>
   <body>
+    <link href="css/main2.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <div class="s002">
       <form runat="server">
         <fieldset>
@@ -64,11 +69,26 @@
             </select>
           </div>-->
           <div class="input-field fifth-wrap">
-            <button class="btn-search" ID="btnSearch" type="button" onserverclick="btnSearch_Click" runat="server">SEARCH</button>
+            <button class="btn-search" ID="rechercher" type="button" onserverclick="btnSearch_Click" runat="server">RECHERCHER</button>
           </div>
         </div>
-      </form>
     </div>
+                <div class="container" runat="server" id="hotels">                
+
+
+
+</div> 
+
+                      <button id="reserver" type="button" onserverclick="btnReserver_Click" class="btn btn-sm btn-primary float-right" runat="server" style="display:none;"></button>
+
+      </form>
+
+
+
+
+
+
+<br><br><br>
     <script src="js/extention/choices.js"></script>
     <script src="js/extention/flatpickr.js"></script>
     <script>

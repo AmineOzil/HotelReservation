@@ -51,6 +51,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="Nbr_lits" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Prix" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Reservations" type="tns:ArrayOfReservation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfReservation">
