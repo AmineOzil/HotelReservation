@@ -36,7 +36,7 @@ namespace ClientApp
                                                     Convert.ToInt32(prixMin.Value),
                                                     Convert.ToInt32(prixMax.Value)
                                                  );
-            System.Diagnostics.Debug.WriteLine("aya bele3 " + result.ElementAt(0).Chambres.ElementAt(3).Numero);
+            System.Diagnostics.Debug.WriteLine("aya bele3 " + result.ElementAt(0).Chambres.Count());
             using (var stringwriter = new System.IO.StringWriter())
             {
                 var serializer = new XmlSerializer(typeof(ClientApp.ServiceHotel.Hotel[]));
@@ -48,7 +48,8 @@ namespace ClientApp
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(stringwriter.ToString());
             }
-
+            Session["s1"] = result;
+            Response.Redirect("resultats.aspx");
         }
     }
 }

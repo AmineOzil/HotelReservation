@@ -48,7 +48,7 @@ namespace WebApplication1
             chambressheraton.Add(ch14);
 
             Hotel hilton = new Hotel(5, true, "Hilton", "Madrid", "Espagne", "Madrid", "+34 911 53 40 00", chambresHilton);
-            Hotel sheraton = new Hotel(5, true, "Sheraton", "Montpellier", "France", "Montpellier", "+33 911 53 40 00", chambressheraton);
+            Hotel sheraton = new Hotel(5, true, "Sheraton", "Montpellier", "France", "Madrid", "+33 911 53 40 00", chambressheraton);
 
             hotels.Add(hilton);
             hotels.Add(sheraton);
