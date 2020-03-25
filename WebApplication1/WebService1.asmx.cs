@@ -106,7 +106,7 @@ namespace WebApplication1
                 prix_reservation = chambre.Prix*nombre_jours_sejour;
                 chambre.ajouterReservation(new Reservation(checkIn, checkOut, prix_reservation, client));
             }
-            return "Votre réservation a été confirmée";
+            return "Votre réservation a été effectuée avec succès !";
         }
 
 
