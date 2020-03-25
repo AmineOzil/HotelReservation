@@ -58,6 +58,7 @@ namespace ClientApp
                                                  );
             state = true;
             this.Page_Load(sender,e);
+            SetFocus(hotels);
            /* String nassims = "";
             for (int j = 0; j < result.Count(); j++)
             {

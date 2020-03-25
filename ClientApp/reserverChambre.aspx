@@ -79,7 +79,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label">Date d'expiration de la carte :</label>
-                    <input maxlength="200" id="dateExpi" runat="server" type="text" required="required" class="form-control" placeholder="Veuillez intoduire votre CVV svp"  />
+                    <input maxlength="200" id="dateExpi" runat="server" type="text" required="required" class="form-control" placeholder="Veuillez intoduire la date d'expiration"  />
                 </div>
                 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
             </div>

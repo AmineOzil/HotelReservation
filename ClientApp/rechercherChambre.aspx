@@ -113,8 +113,9 @@
       {
         searchEnabled: false,
         itemSelectText: '',
+
       });
 
     </script>
-  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+  </body>
 </html>
