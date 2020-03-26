@@ -49,12 +49,12 @@ namespace ClientApp
             checkIn = datesAR[0];
             checkOut = datesAR[4];
             System.Diagnostics.Debug.WriteLine(checkIn + "aaand" + checkOut + "for the city "+ ville.Value+"one of the "+prixMax.Value);
-            result = client.rechercherChambre(
-                                                    ville.Value,
+            result = client.rechercherChambre(      ville.Value,
                                                     checkIn,
                                                     checkOut,
                                                     Convert.ToInt32(prixMin.Value),
-                                                    Convert.ToInt32(prixMax.Value)
+                                                    Convert.ToInt32(prixMax.Value), 
+                                                    Convert.ToInt32(nbrLits.Value)
                                                  );
             state = true;
             this.Page_Load(sender,e);
