@@ -13,6 +13,7 @@ namespace WebApplication1
         private bool état; //état pour voir si l'hôtel est plein ou il y'a une disponibilité
         private String nom,adresse,pays,ville,num_tel; // nom de l'hôtel, son adresse, son pays, sa ville, son num_tel
         private List<Chambre> chambres;
+        private List<Agence> agences;
 
         public Hotel()
         {
@@ -29,6 +30,19 @@ namespace WebApplication1
             set
             {
                 chambres = value;
+            }
+        }
+
+        public List<Agence> Agences
+        {
+            get
+            {
+                return agences;
+            }
+
+            set
+            {
+                agences = value;
             }
         }
 
@@ -147,6 +161,17 @@ namespace WebApplication1
             this.Num_tel = hotel.Num_tel;
             this.Chambres = chambres;
         }
+        public Hotel(Hotel hotel, List<Agence> agences)
+        {
+            this.Nbr_étoiles = hotel.Nbr_étoiles;
+            this.État = hotel.État;
+            this.Nom = hotel.Nom;
+            this.Adresse = hotel.Adresse;
+            this.Pays = hotel.Pays;
+            this.Ville = hotel.Ville;
+            this.Num_tel = hotel.Num_tel;
+            this.Chambres = chambres;
+        }
         public Hotel(int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres)
         {
             this.Id++;
@@ -163,6 +188,12 @@ namespace WebApplication1
         {
             Chambres.Add(chambre);
         }
+
+        public void addAgence(Agence agence)
+        {
+            Agences.Add(agence);
+        }
+
         /*Non utilisée jusqu'à maintenant
         public bool etat(DateTime checkIn,DateTime checkOut)
         {

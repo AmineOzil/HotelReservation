@@ -71,6 +71,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="agenceENOVBM.aspx" />
     <Content Include="Connected Services\ServiceHotel\ClientApp.ServiceHotel.Hotel.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -88,6 +89,13 @@
     <None Include="Connected Services\ServiceHotel\WebService1.wsdl" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="agenceENOVBM.aspx.cs">
+      <DependentUpon>agenceENOVBM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="agenceENOVBM.aspx.designer.cs">
+      <DependentUpon>agenceENOVBM.aspx</DependentUpon>
+    </Compile>
     <Compile Include="reserverChambre.aspx.cs">
       <DependentUpon>reserverChambre.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
