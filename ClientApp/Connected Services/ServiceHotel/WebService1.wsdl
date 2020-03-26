@@ -10,6 +10,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="checkout" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="prixmin" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="prixmax" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nbrLits" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -134,6 +135,7 @@
     <wsdl:part name="checkout" type="s:string" />
     <wsdl:part name="prixmin" type="s:string" />
     <wsdl:part name="prixmax" type="s:string" />
+    <wsdl:part name="nbrLits" type="s:string" />
   </wsdl:message>
   <wsdl:message name="rechercherChambreHttpGetOut">
     <wsdl:part name="Body" element="tns:ArrayOfHotel" />

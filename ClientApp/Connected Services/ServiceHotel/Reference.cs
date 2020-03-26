@@ -17,10 +17,10 @@ namespace ClientApp.ServiceHotel {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/rechercherChambre", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        ClientApp.ServiceHotel.Hotel[] rechercherChambre(string ville, string checkIn, string checkout, int prixmin, int prixmax);
+        ClientApp.ServiceHotel.Hotel[] rechercherChambre(string ville, string checkIn, string checkout, int prixmin, int prixmax, int nbrLits);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/rechercherChambre", ReplyAction="*")]
-        System.Threading.Tasks.Task<ClientApp.ServiceHotel.Hotel[]> rechercherChambreAsync(string ville, string checkIn, string checkout, int prixmin, int prixmax);
+        System.Threading.Tasks.Task<ClientApp.ServiceHotel.Hotel[]> rechercherChambreAsync(string ville, string checkIn, string checkout, int prixmin, int prixmax, int nbrLits);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/reserverChambres", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -581,12 +581,12 @@ namespace ClientApp.ServiceHotel {
                 base(binding, remoteAddress) {
         }
         
-        public ClientApp.ServiceHotel.Hotel[] rechercherChambre(string ville, string checkIn, string checkout, int prixmin, int prixmax) {
-            return base.Channel.rechercherChambre(ville, checkIn, checkout, prixmin, prixmax);
+        public ClientApp.ServiceHotel.Hotel[] rechercherChambre(string ville, string checkIn, string checkout, int prixmin, int prixmax, int nbrLits) {
+            return base.Channel.rechercherChambre(ville, checkIn, checkout, prixmin, prixmax, nbrLits);
         }
         
-        public System.Threading.Tasks.Task<ClientApp.ServiceHotel.Hotel[]> rechercherChambreAsync(string ville, string checkIn, string checkout, int prixmin, int prixmax) {
-            return base.Channel.rechercherChambreAsync(ville, checkIn, checkout, prixmin, prixmax);
+        public System.Threading.Tasks.Task<ClientApp.ServiceHotel.Hotel[]> rechercherChambreAsync(string ville, string checkIn, string checkout, int prixmin, int prixmax, int nbrLits) {
+            return base.Channel.rechercherChambreAsync(ville, checkIn, checkout, prixmin, prixmax, nbrLits);
         }
         
         public string reserverChambres(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration) {
