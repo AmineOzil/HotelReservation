@@ -20,19 +20,54 @@ namespace ClientApp
         {
             if (state)
             {
+                String id = (String)Session["s0"];
                 String nassims = "";
-                for (int j = 0; j < result.Count(); j++)
-                {
-                    nassims += "<br><p class=\"text-center\">" + result.ElementAt(j).Nom + "</a></p><hr><div class=\"row\" runat=\"server\">";
-
-                    for (int i = 0; i < result.ElementAt(j).Chambres.Count(); i++)
+                
+              if(id.Equals("AG1001")) 
+              {     
+                    for (int j = 0; j < result.Count(); j++)
                     {
-                        nassims += "<div class=\"col-md-4\" runat=\"server\"> <figure class=\"card card-product\"><div class=\"img-wrap\"><img src = \"" + result.ElementAt(j).Chambres.ElementAt(i).Image + "\" ></div><figcaption class=\"info-wrap\"><h4 class=\"title\">" + result.ElementAt(j).Nom + "</h4><p class=\"desc\"> Chambre " + result.ElementAt(j).Chambres.ElementAt(i).Type + "</p><div class=\"rating-wrap\"></figcaption><div class=\"bottom-wrap\"><button ID=\"" + result[j].Chambres[i].Numero + "_" + result[j].Id + "\" type=\"button\" OnClick=\"__doPostBack('reserver','"+ result[j].Chambres[i].Numero + "_" + result[j].Id +"_"+checkIn+"_"+checkOut+"')\" class=\"btn btn-sm btn-primary float-right\" runat=\"server\"> Réserver</button><div class=\"price-wrap h5\"><span class=\"price-new\">$" + result.ElementAt(j).Chambres.ElementAt(i).Prix + "</span></figure> </div>";
-                    }
-                    nassims += "</div>";
-                }
+                        nassims += "<br><p class=\"text-center\">" + result.ElementAt(j).Nom + "</a></p><hr><div class=\"row\" runat=\"server\">";
 
-                hotels.InnerHtml = nassims;
+                        for (int i = 0; i < result.ElementAt(j).Chambres.Count(); i++)
+                        {
+                            nassims += "<div class=\"col-md-4\" runat=\"server\"> <figure class=\"card card-product\"><div class=\"img-wrap\"><img src = \"" + result.ElementAt(j).Chambres.ElementAt(i).Image + "\" ></div><figcaption class=\"info-wrap\"><h4 class=\"title\">" + result.ElementAt(j).Nom + "</h4><p class=\"desc\"> Chambre " + result.ElementAt(j).Chambres.ElementAt(i).Type + "</p><div class=\"rating-wrap\"></figcaption><div class=\"bottom-wrap\"><button ID=\"" + result[j].Chambres[i].Numero + "_" + result[j].Id + "\" type=\"button\" OnClick=\"__doPostBack('reserver','"+ result[j].Chambres[i].Numero + "_" + result[j].Id +"_"+checkIn+"_"+checkOut+"')\" class=\"btn btn-sm btn-primary float-right\" runat=\"server\"> Réserver</button><div class=\"price-wrap h5\"><span class=\"price-new\">$" + result.ElementAt(j).Chambres.ElementAt(i).Prix*0.70 + "</span></figure> </div>";
+                        }
+                        nassims += "</div>";
+                    }
+
+                    hotels.InnerHtml = nassims;
+              }
+                if (id.Equals("AG1002"))
+                {
+                    for (int j = 0; j < result.Count(); j++)
+                    {
+                        nassims += "<br><p class=\"text-center\">" + result.ElementAt(j).Nom + "</a></p><hr><div class=\"row\" runat=\"server\">";
+
+                        for (int i = 0; i < result.ElementAt(j).Chambres.Count(); i++)
+                        {
+                            nassims += "<div class=\"col-md-4\" runat=\"server\"> <figure class=\"card card-product\"><div class=\"img-wrap\"><img src = \"" + result.ElementAt(j).Chambres.ElementAt(i).Image + "\" ></div><figcaption class=\"info-wrap\"><h4 class=\"title\">" + result.ElementAt(j).Nom + "</h4><p class=\"desc\"> Chambre " + result.ElementAt(j).Chambres.ElementAt(i).Type + "</p><div class=\"rating-wrap\"></figcaption><div class=\"bottom-wrap\"><button ID=\"" + result[j].Chambres[i].Numero + "_" + result[j].Id + "\" type=\"button\" OnClick=\"__doPostBack('reserver','" + result[j].Chambres[i].Numero + "_" + result[j].Id + "_" + checkIn + "_" + checkOut + "')\" class=\"btn btn-sm btn-primary float-right\" runat=\"server\"> Réserver</button><div class=\"price-wrap h5\"><span class=\"price-new\">$" + result.ElementAt(j).Chambres.ElementAt(i).Prix*0.35 + "</span></figure> </div>";
+                        }
+                        nassims += "</div>";
+                    }
+
+                    hotels.InnerHtml = nassims;
+                }
+                if (id.Equals("AG1003"))
+                {
+                    for (int j = 0; j < result.Count(); j++)
+                    {
+                        nassims += "<br><p class=\"text-center\">" + result.ElementAt(j).Nom + "</a></p><hr><div class=\"row\" runat=\"server\">";
+
+                        for (int i = 0; i < result.ElementAt(j).Chambres.Count(); i++)
+                        {
+                            nassims += "<div class=\"col-md-4\" runat=\"server\"> <figure class=\"card card-product\"><div class=\"img-wrap\"><img src = \"" + result.ElementAt(j).Chambres.ElementAt(i).Image + "\" ></div><figcaption class=\"info-wrap\"><h4 class=\"title\">" + result.ElementAt(j).Nom + "</h4><p class=\"desc\"> Chambre " + result.ElementAt(j).Chambres.ElementAt(i).Type + "</p><div class=\"rating-wrap\"></figcaption><div class=\"bottom-wrap\"><button ID=\"" + result[j].Chambres[i].Numero + "_" + result[j].Id + "\" type=\"button\" OnClick=\"__doPostBack('reserver','" + result[j].Chambres[i].Numero + "_" + result[j].Id + "_" + checkIn + "_" + checkOut + "')\" class=\"btn btn-sm btn-primary float-right\" runat=\"server\"> Réserver</button><div class=\"price-wrap h5\"><span class=\"price-new\">$" + result.ElementAt(j).Chambres.ElementAt(i).Prix*0.45 + "</span></figure> </div>";
+                        }
+                        nassims += "</div>";
+                    }
+
+                    hotels.InnerHtml = nassims;
+                }
             }
         }
 
@@ -48,32 +83,18 @@ namespace ClientApp
             String[] datesAR = dates.Split(splitor.ToCharArray());
             checkIn = datesAR[0];
             checkOut = datesAR[4];
-            System.Diagnostics.Debug.WriteLine(checkIn + "aaand" + checkOut + "for the city "+ ville.Value+"one of the "+prixMax.Value);
-            result = client.rechercherChambre(      ville.Value,
+            System.Diagnostics.Debug.WriteLine(checkIn + "aaand" + checkOut + "for the city " + ville.Value + "one of the " + prixMax.Value);
+            result = client.rechercherChambre(ville.Value,
                                                     checkIn,
                                                     checkOut,
                                                     Convert.ToInt32(prixMin.Value),
-                                                    Convert.ToInt32(prixMax.Value), 
+                                                    Convert.ToInt32(prixMax.Value),
                                                     Convert.ToInt32(nbrLits.Value)
                                                  );
             state = true;
-            this.Page_Load(sender,e);
+            this.Page_Load(sender, e);
             SetFocus(hotels);
-           /* String nassims = "";
-            for (int j = 0; j < result.Count(); j++)
-            {
-                nassims += "<br><p class=\"text-center\">" + result.ElementAt(j).Nom + "</a></p><hr><div class=\"row\" runat=\"server\">";
 
-                for (int i = 0; i < result.ElementAt(j).Chambres.Count(); i++)
-                {
-                    nassims += "<div class=\"col-md-4\" runat=\"server\"> <figure class=\"card card-product\"><div class=\"img-wrap\"><img src = \"" + result.ElementAt(j).Chambres.ElementAt(i).Image + "\" ></div><figcaption class=\"info-wrap\"><h4 class=\"title\">" + result.ElementAt(j).Nom + "</h4><p class=\"desc\"> Chambre " + result.ElementAt(j).Chambres.ElementAt(i).Type + "</p><div class=\"rating-wrap\"></figcaption><div class=\"bottom-wrap\"><button ID=\""+result[j].Chambres[i].Numero+"_"+result[j].Id+ "\" type=\"button\" onserverclick=\"btnReserver_Click\" class=\"btn btn-sm btn-primary float-right\" runat=\"server\"> Réserver</button><div class=\"price-wrap h5\"><span class=\"price-new\">$" + result.ElementAt(j).Chambres.ElementAt(i).Prix + "</span></figure> </div>";
-                }
-                nassims += "</div>";
-            }
-            
-            hotels.InnerHtml = nassims;*/
-            /*Session["s1"] = result;
-            Response.Redirect("resultats.aspx");*/
         }
 
 
@@ -83,8 +104,9 @@ namespace ClientApp
 
 
             string requete = Request["__EVENTARGUMENT"];
-
+            String result = (String)Session["s0"];
             Session["s1"] = requete;
+            Session["s2"] = result;
             Response.Redirect("reserverChambre.aspx");
             //redirect page ...
 

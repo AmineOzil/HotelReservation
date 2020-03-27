@@ -18,10 +18,24 @@ namespace WebApplication1
     public class WebService1 : System.Web.Services.WebService
     {
         public static List<Hotel> hotels=new List<Hotel>();
-       
-       
+        private static List<Agence> agences = new List<Agence>();
+
+
+
         public void initialise()
         {
+            Agence ag1 = new Agence("AG1001", "ENOVBM", "enovbm2020", "pass1001", "Espagne");
+            Agence ag2 = new Agence("AG1002", "PLATINIUM", "platinium2020", "pass1002", "Italie");
+            Agence ag3 = new Agence("AG1003", "HOSTELWORLD", "hworld2020", "pass1003", "Allemagne");
+
+
+            List<Agence> agencesPartenaires = new List<Agence>();
+            agencesPartenaires.Add(ag1);
+            agencesPartenaires.Add(ag2);
+            agencesPartenaires.Add(ag3);
+
+
+
             /* Réserver une chambre */
 
             Chambre ch = new Chambre(101, 1, "Simple", 1, 35, "https://www.thonhotels.com/globalassets/hoteller/norge/haugesund/thon-hotel-saga/romtyper/standard-room-single/thon-hotel-saga-standard-room-single-1.jpg?width=1100&height=550&mode=crop&quality=80");
@@ -96,11 +110,15 @@ namespace WebApplication1
 
             /* Attribution des chambres pour les hôtels */
 
-            Hotel hilton = new Hotel(5, true, "Hilton", "Madrid", "Espagne", "Madrid", "+34 911 53 40 00", chambresHilton);
-            Hotel sheraton = new Hotel(5, true, "Sheraton", "Montpellier", "France", "Montpellier", "+33 911 53 40 00", chambressheraton);
-            Hotel mariott = new Hotel(5, true, "Mariott", "Paris", "France", "Paris", "+33 911 53 40 00", chambresmariott);
-            Hotel stchristopher = new Hotel(3, true, "St Christopher", "Madrid", "Espagne", "Madrid", "+33 911 53 40 00", chambresstchristopher);
-
+            /* Hotel hilton = new Hotel(5, true, "Hilton", "Madrid", "Espagne", "Madrid", "+34 911 53 40 00", chambresHilton);
+             Hotel sheraton = new Hotel(5, true, "Sheraton", "Montpellier", "France", "Montpellier", "+33 911 53 40 00", chambressheraton);
+             Hotel mariott = new Hotel(5, true, "Mariott", "Paris", "France", "Paris", "+33 911 53 40 00", chambresmariott);
+             Hotel stchristopher = new Hotel(3, true, "St Christopher", "Madrid", "Espagne", "Madrid", "+33 911 53 40 00", chambresstchristopher);
+ */
+            Hotel hilton = new Hotel(5, true, "Hilton", "Madrid", "Espagne", "Madrid", "+34 911 53 40 00", chambresHilton, agencesPartenaires);
+            Hotel sheraton = new Hotel(5, true, "Sheraton", "Montpellier", "France", "Montpellier", "+33 911 53 40 00", chambressheraton, agencesPartenaires);
+            Hotel mariott = new Hotel(5, true, "Mariott", "Paris", "France", "Paris", "+33 911 53 40 00", chambresmariott, agencesPartenaires);
+            Hotel stchristopher = new Hotel(3, true, "St Christopher", "Madrid", "Espagne", "Madrid", "+33 911 53 40 00", chambresstchristopher, agencesPartenaires);
 
             hotels.Add(hilton);
             hotels.Add(sheraton);
@@ -111,6 +129,19 @@ namespace WebApplication1
             /* Fin d'attribution */
 
 
+        }
+
+        [WebMethod]
+        public String authentificationAgence(String usr, String mdp)
+        {
+            foreach (Agence ag in agences)
+            {
+                if (ag.Username.Equals(usr) && ag.Password.Equals(mdp))
+                {
+                    return ag.Id;
+                }
+            }
+            return null;
         }
 
         [WebMethod]

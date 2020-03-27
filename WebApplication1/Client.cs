@@ -7,7 +7,7 @@ namespace WebApplication1
 {
     public class Client
     {
-        private String nom, prenom, numPasseport,num_tel;
+        private String nom, prenom, numPasseport,num_tel,id,mdp;
         private DateTime date_naissance;
         private CarteCredit carte;
 
@@ -23,6 +23,51 @@ namespace WebApplication1
             this.Num_tel = num_tel;
             this.Date_naissance = date_naissance;
             this.Carte = carte;
+        }
+
+        public override bool Equals(object c)
+        {
+            if (c == null)
+                return false;
+
+            Client client = c as Client;
+
+            return this.id.Equals(client.id) && this.mdp.Equals(client.mdp);
+        }
+
+        public override string ToString()
+        {
+            string result = "";
+            result += "nom : " + this.nom + Environment.NewLine;
+            result += "id : " + this.id + Environment.NewLine;
+            result += "mdp : " + this.mdp + Environment.NewLine;
+
+            return result;
+        }
+
+        public string Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
+
+        private string _mdp;
+        public string Mdp
+        {
+            get
+            {
+                return mdp;
+            }
+            set
+            {
+                mdp = value;
+            }
         }
 
         public string Nom
