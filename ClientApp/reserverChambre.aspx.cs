@@ -14,11 +14,12 @@ namespace ClientApp
         String num_chambre = "";
         String checkIn = "";
         String checkOut = "";
-        String id_agence = "";
+        int id_agence;
 
         public void Page_Load(object sender, EventArgs e)
         {
-            String id = (String)Session["s2"];
+            int id = (int)Session["s2"];
+            id_agence = id;
             String result = (String)Session["s1"];
             String splitor = "_";
             String[] dataChambreHotel = result.Split(splitor.ToCharArray());
@@ -31,7 +32,8 @@ namespace ClientApp
               "  ID_Hotel : " + id_hotel +
               "  Num_Chambre : " + num_chambre +
               "  chekIn : " + checkIn +
-              "  chekOut : " + checkOut
+              "  chekOut : " + checkOut +
+              "  ID_Agence : " + id_agence
               );
 
 
@@ -41,7 +43,7 @@ namespace ClientApp
         {
             ClientApp.ServiceHotel.WebService1SoapClient client = new ClientApp.ServiceHotel.WebService1SoapClient();
 
-            String id = (String)Session["s2"];
+            int id = (int)Session["s2"];
             String result = (String)Session["s1"];
             String splitor = "_";
             String[] dataChambreHotel = result.Split(splitor.ToCharArray());

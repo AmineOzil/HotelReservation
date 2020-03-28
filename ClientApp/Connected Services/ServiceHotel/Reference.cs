@@ -331,6 +331,8 @@ namespace ClientApp.ServiceHotel {
         
         private Client clientField;
         
+        private int id_agenceField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public int Id {
@@ -400,6 +402,18 @@ namespace ClientApp.ServiceHotel {
             set {
                 this.clientField = value;
                 this.RaisePropertyChanged("Client");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public int Id_agence {
+            get {
+                return this.id_agenceField;
+            }
+            set {
+                this.id_agenceField = value;
+                this.RaisePropertyChanged("Id_agence");
             }
         }
         

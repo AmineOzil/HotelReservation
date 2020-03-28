@@ -69,6 +69,7 @@
           <s:element minOccurs="1" maxOccurs="1" name="CheckOut" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="Prix_res" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Client" type="tns:Client" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id_agence" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Client">

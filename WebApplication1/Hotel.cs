@@ -152,6 +152,8 @@ namespace WebApplication1
 
         public Hotel (Hotel hotel,List<Chambre> chambres)
         {
+            this.Compteur++;
+            this.Id = this.Compteur;
             this.Nbr_étoiles = hotel.Nbr_étoiles;
             this.État = hotel.État;
             this.Nom = hotel.Nom;
