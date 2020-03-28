@@ -14,11 +14,12 @@ namespace ClientApp
         String num_chambre = "";
         String checkIn = "";
         String checkOut = "";
-        String id_agence = "";
+        int id_agence;
 
         public void Page_Load(object sender, EventArgs e)
         {
-            String id = (String)Session["s2"];
+            int id = (int)Session["s2"];
+            id_agence = id;
             String result = (String)Session["s1"];
             String splitor = "_";
             String[] dataChambreHotel = result.Split(splitor.ToCharArray());
@@ -31,7 +32,8 @@ namespace ClientApp
               "  ID_Hotel : " + id_hotel +
               "  Num_Chambre : " + num_chambre +
               "  chekIn : " + checkIn +
-              "  chekOut : " + checkOut
+              "  chekOut : " + checkOut +
+              "  ID_Agence : " + id_agence
               );
 
 
@@ -41,7 +43,7 @@ namespace ClientApp
         {
             ClientApp.ServiceHotel.WebService1SoapClient client = new ClientApp.ServiceHotel.WebService1SoapClient();
 
-            String id = (String)Session["s2"];
+            int id = (int)Session["s2"];
             String result = (String)Session["s1"];
             String splitor = "_";
             String[] dataChambreHotel = result.Split(splitor.ToCharArray());
@@ -66,7 +68,8 @@ namespace ClientApp
                 "  ID_Hotel : " + id_hotel +
                 "  Num_Chambre : " + num_chambre +
                 "  chekIn : " + checkIn + 
-                "  chekOut : " + checkOut 
+                "  chekOut : " + checkOut+
+                "  ID_Agence : " + id_agence
                 );
 
 
@@ -76,13 +79,25 @@ namespace ClientApp
                         checkIn,
                         checkOut,
                         nom, prenom, numpass, numtel, datenaiss,
-                        numcarte, cvv, typecarte, dateexpir);
+                        numcarte, cvv, typecarte, dateexpir,
+                        Convert.ToInt32(id_agence));
 
             System.Diagnostics.Debug.WriteLine("Le msg est :"+msg);
 
-            // Displays the MessageBox.
-            MessageBox.Show("Félicitation Mr "+nom+" "+prenom+" votre réservation est effectuée avec succès! nous espérons vous voir chez nous le plutot possible ^^");
-            Response.Redirect("rechercherChambre.aspx");
+            if (msg.Equals(""))
+            {
+                // Displays the MessageBox.
+                MessageBox.Show("Une erreur s'est produite lors de votre réservation veuillez réessayer à nouveau. Merci !");
+                Response.Redirect("rechercherChambre.aspx");
+
+            }
+            else
+            {
+                // Displays the MessageBox.
+                MessageBox.Show("Félicitation Mr " + nom + " " + prenom + " votre réservation est effectuée avec succès! nous espérons vous voir chez nous le plutot possible ^^");
+                Response.Redirect("rechercherChambre.aspx");
+            }
+            
 
 
 

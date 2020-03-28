@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace ClientApp
 {
@@ -21,20 +22,19 @@ namespace ClientApp
             int id_agence=client.authentification(username.Value, password.Value);
             if (id_agence != 0)
             {
-                Session["s1"] =id_agence;
+                Session["s0"] =id_agence;
                 Response.Redirect("rechercherChambre.aspx");
+            }
+            else
+            {
+                MessageBox.Show("Identifiant ou mot de passe de l'agence incorrectes, veuillez réessayer à nouveau. Merci !");
             }
 
         }
 
         protected void btnLoginInvite_Click(object sender, EventArgs e)
         {
-            int id_agence = client.authentification("invite", "invite");
-            if (id_agence != 0)
-            {
-                Session["s1"] = id_agence;
-                Response.Redirect("rechercherChambre.aspx");
-            }
+            Response.Redirect("rechercherChambre.aspx");
 
         }
     }

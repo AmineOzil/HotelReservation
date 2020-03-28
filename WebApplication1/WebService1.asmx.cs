@@ -30,7 +30,7 @@ namespace WebApplication1
             DateTime dt1 = DateTime.Parse("12/06/2020 12:00");
             DateTime dt2 = DateTime.Parse("18/06/2020 14:00");
 
-            Reservation res = new Reservation(dt1, dt2, 120, new Client("Nassim", "Sehout", "100123543", "+33 424 22 11 43", DateTime.Parse("15/10/1993"), new CarteCredit("453435500343", "123", "Visa Card", "10/23")));
+            Reservation res = new Reservation(dt1, dt2, 120, new Client("Nassim", "Sehout", "100123543", "+33 424 22 11 43", DateTime.Parse("15/10/1993"), new CarteCredit("453435500343", "123", "Visa Card", "10/23")), 1);
             ch.ajouterReservation(res);
 
             /* Fin de réservation */
@@ -39,7 +39,7 @@ namespace WebApplication1
 
             Chambre ch1 = new Chambre(102, 1, "Simple", 1, 35, "https://www.thonhotels.com/globalassets/hoteller/norge/haugesund/thon-hotel-saga/romtyper/standard-room-single/thon-hotel-saga-standard-room-single-1.jpg?width=1100&height=550&mode=crop&quality=80");
             Chambre ch2 = new Chambre(103, 1, "Simple", 1, 35, "https://www.thonhotels.com/globalassets/hoteller/norge/haugesund/thon-hotel-saga/romtyper/standard-room-single/thon-hotel-saga-standard-room-single-1.jpg?width=1100&height=550&mode=crop&quality=80");
-            Chambre ch3 = new Chambre(104, 1, "Double", 2, 60, "https://lh3.googleusercontent.com/proxy/KwP-elt55OSSFIl9mL6rNLkBHLgqN5rwDsFo-3YN44lJU1koBysYrZqeXv9xxzeu2HyPtDimHZaHjDby09rKPvLOlunl_69yVuFJ1SYEs5wCXIc6ZxfareT0dQp_A0kaLb09dM8z_wRiTvVVDwTT9N8byQ");
+            Chambre ch3 = new Chambre(104, 1, "Double", 2, 60, "https://www.hotelmondialparis.com/wp-content/uploads/2017/04/Hotel-Mondial-Paris-Chambre-Double-Confort-505-G-870x580.jpg");
             Chambre ch4 = new Chambre(105, 1, "Duplex", 4, 150, "https://806d2bf04cf5fa54997a-e7c5344b3b84eec5da7b51276407b19c.ssl.cf1.rackcdn.com/responsive/1536/806d2bf04cf5fa54997a-e7c5344b3b84eec5da7b51276407b19c.ssl.cf1.rackcdn.com/responsive/4:3/806d2bf04cf5fa54997a-e7c5344b3b84eec5da7b51276407b19c.ssl.cf1.rackcdn.com/u/conservatorium/rooms/superior-guest-room/Conservatorium_Hotel_Duplex_Guestroom--1-.jpg");
 
             List<Chambre> chambresHilton = new List<Chambre>();
@@ -110,10 +110,10 @@ namespace WebApplication1
             /*fin d'ajout*/
             /* Attribution des chambres pour les hôtels */
 
-            Hotel hilton = new Hotel(5, true, "Hilton", "Madrid", "Espagne", "Madrid", "+34 911 53 40 00", chambresHilton);
-            Hotel sheraton = new Hotel(5, true, "Sheraton", "Montpellier", "France", "Montpellier", "+33 911 53 40 00", chambressheraton);
-            Hotel mariott = new Hotel(5, true, "Mariott", "Paris", "France", "Paris", "+33 911 53 40 00", chambresmariott);
-            Hotel stchristopher = new Hotel(3, true, "St Christopher", "Madrid", "Espagne", "Madrid", "+33 911 53 40 00", chambresstchristopher);
+            Hotel hilton = new Hotel(5, true, "Hilton", "Calle de Manuela Malasaña, 6, 28004 Madrid, Espagne", "Espagne", "Madrid", "+34 914 48 58 16", chambresHilton);
+            Hotel sheraton = new Hotel(5, true, "Sheraton", "1 Rue des Pertuisanes, 34000 Montpellier", "France", "Montpellier", "+33 467 99 72 72", chambressheraton);
+            Hotel mariott = new Hotel(5, true, "Mariott", "70 avenue des Champs-Élysées, Paris 75008", "France", "Paris", "+33 153 93 55 00", chambresmariott);
+            Hotel stchristopher = new Hotel(3, true, "St Christopher", "Carrer de Bergara, 3, 08002 Madrid, Espagne", "Espagne", "Madrid", "+34 931 75 14 01", chambresstchristopher);
 
 
             hotels.Add(hilton);
@@ -168,19 +168,18 @@ namespace WebApplication1
             foreach (Hotel hotel in hotels)
             {  if (hotel.Ville.Equals(ville) && hotel.chambresDispo(cin,cout,prixmin,prixmax,nbrLits).Count>0)
                 {
-
-                        Hotel hoteldispo = new Hotel(hotel, hotel.chambresDispo(cin,cout,prixmin, prixmax, nbrLits));
-                        hotelsDispo.Add(hoteldispo);
-                    
+                   hotelsDispo.Add(hotel);
                 }
             }
             return hotelsDispo;
         }
         [WebMethod]
-        public String reserverChambres(int id_hotel,String numero_chambres,String checkin,String checkout,String nom_client,String prenom_client,String num_passeport,String num_tel,String date_naissance,String num_carte,String cvv,String type,String date_expiration)
+        public String reserverChambres(int id_hotel,String numero_chambres,String checkin,String checkout,String nom_client,String prenom_client,String num_passeport,String num_tel,String date_naissance,String num_carte,String cvv,String type,String date_expiration, int id_agence)
         {
             if (hotels.Count == 0 || agences.Count == 0 || partenariats.Count == 0)
+         
                 initialise();
+           
             Hotel h = hotels.Find(hotel => hotel.Id == id_hotel);
             String[] numchambres=numero_chambres.Split(';'); // On utilise ; comme séparateur entre chaque deux numéros de chambre à réserver et là on récupère tous ces numéros 
             List<Chambre> chambres_à_reserver=new List<Chambre>();
@@ -189,22 +188,25 @@ namespace WebApplication1
             DateTime checkIn = DateTime.Parse(checkin);
             DateTime checkOut = DateTime.Parse(checkout);
             int nombre_jours_sejour = (checkOut - checkIn).Days; //Le nombre total des jours de séjour
+            Agence ag = agences.Find(agence => agence.Id == id_agence);
+           
             if (numchambres.Count() == 0)
             {
                 chambres_à_reserver.Add(h.Chambres.Find(chambre => chambre.Numero == int.Parse(numero_chambres)));
             }
+
             else
-            foreach (String num in numchambres)
-            {
-                Console.WriteLine(num);
-                chambres_à_reserver.Add(h.Chambres.Find(chambre => chambre.Numero == int.Parse(num))); 
-            }
-            int prix_reservation = 0;
-            foreach (Chambre chambre in chambres_à_reserver)
-            {
-                prix_reservation = chambre.Prix*nombre_jours_sejour;
-                chambre.ajouterReservation(new Reservation(checkIn, checkOut, prix_reservation, client));
-            }
+            
+                foreach (String num in numchambres)
+                {
+                    chambres_à_reserver.Add(h.Chambres.Find(chambre => chambre.Numero == int.Parse(num)));
+                }
+                int prix_reservation = 0;
+                foreach (Chambre chambre in chambres_à_reserver)
+                {
+                    prix_reservation = chambre.Prix * nombre_jours_sejour;
+                    chambre.ajouterReservation(new Reservation(checkIn, checkOut, prix_reservation, client, ag.Id));
+                }
             return "Votre réservation a été effectuée avec succès !";
         }
         public void prixAgence(int id_agence)
