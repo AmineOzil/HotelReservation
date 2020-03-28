@@ -39,7 +39,7 @@
                 <h3> Step 1</h3>
                 <div class="form-group">
                     <label class="control-label">Nom :</label>
-                    <input  maxlength="100" id="nomC" runat="server" type="text" required="required" class="form-control" placeholder="Veuillez Saisir votre nom svp"  />
+                    <input  maxlength="100" id="nomC" runat="server" type="text" required="required" class="form-control" placeholder="Veuillez saisir votre nom svp"  />
                 </div>
                 <div class="form-group">
                     <label class="control-label">Prénom :</label>

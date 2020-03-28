@@ -177,7 +177,7 @@ namespace WebApplication1
             return hotelsDispo;
         }
         [WebMethod]
-        public String reserverChambres(int id_hotel,String numero_chambres,String checkin,String checkout,String nom_client,String prenom_client,String num_passeport,String num_tel,String date_naissance,String num_carte,String cvv,String type,String date_expiration)
+        public String reserverChambres(int id_hotel,String numero_chambres,String checkin,String checkout,String nom_client,String prenom_client,String num_passeport,String num_tel,String date_naissance,String num_carte,String cvv,String type,String date_expiration, int id_agence)
         {
             if (hotels.Count == 0 || agences.Count == 0 || partenariats.Count == 0)
                 initialise();
@@ -189,6 +189,7 @@ namespace WebApplication1
             DateTime checkIn = DateTime.Parse(checkin);
             DateTime checkOut = DateTime.Parse(checkout);
             int nombre_jours_sejour = (checkOut - checkIn).Days; //Le nombre total des jours de séjour
+            Agence ag = agences.Find(agence => agence.Id == id_agence);
             if (numchambres.Count() == 0)
             {
                 chambres_à_reserver.Add(h.Chambres.Find(chambre => chambre.Numero == int.Parse(numero_chambres)));

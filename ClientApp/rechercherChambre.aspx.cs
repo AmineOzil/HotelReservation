@@ -72,9 +72,9 @@ namespace ClientApp
 
 
             string requete = Request["__EVENTARGUMENT"];
-            String result = (String)Session["s0"];
+            String id = (String)Session["s0"];
             Session["s1"] = requete;
-            Session["s2"] = result;
+            Session["s2"] = id;
             Response.Redirect("reserverChambre.aspx");
             //redirect page ...
 
