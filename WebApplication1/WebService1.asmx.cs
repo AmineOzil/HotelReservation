@@ -204,7 +204,7 @@ namespace WebApplication1
             foreach (Chambre chambre in chambres_à_reserver)
             {
                 prix_reservation = chambre.Prix*nombre_jours_sejour;
-                chambre.ajouterReservation(new Reservation(checkIn, checkOut, prix_reservation, client));
+                chambre.ajouterReservation(new Reservation(checkIn, checkOut, prix_reservation, client, ag.Id));
             }
             return "Votre réservation a été effectuée avec succès !";
         }

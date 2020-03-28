@@ -107,6 +107,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="cvv" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="type" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="date_expiration" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_agence" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -180,6 +181,7 @@
     <wsdl:part name="cvv" type="s:string" />
     <wsdl:part name="type" type="s:string" />
     <wsdl:part name="date_expiration" type="s:string" />
+    <wsdl:part name="id_agence" type="s:string" />
   </wsdl:message>
   <wsdl:message name="reserverChambresHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />

@@ -13,13 +13,14 @@ namespace WebApplication1
         private DateTime checkOut;
         private int prix_res;
         private Client client;
+        private Agence id_agence;
 
         public Reservation()
         {
 
         }
 
-        public Reservation(DateTime checkIn, DateTime checkOut, int prix_res, Client client)
+        public Reservation(DateTime checkIn, DateTime checkOut, int prix_res, Client client, Agence id_agence)
         {
             this.Compteur++;
             this.Id = this.Compteur;
@@ -27,6 +28,7 @@ namespace WebApplication1
             this.checkOut = checkOut;
             this.prix_res = prix_res;
             this.Client = client;
+            this.Id_agence = id_agence;
         }
 
         public int Id
@@ -105,6 +107,19 @@ namespace WebApplication1
             }
         }
 
-        
+        public Agence Id_agence
+        {
+            get
+            {
+                return id_agence;
+            }
+
+            set
+            {
+                id_agence = value;
+            }
+        }
+
+
     }
 }
