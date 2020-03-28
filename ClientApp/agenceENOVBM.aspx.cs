@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace ClientApp
 {
@@ -24,12 +25,16 @@ namespace ClientApp
                 Session["s0"] =id_agence;
                 Response.Redirect("rechercherChambre.aspx");
             }
+            else
+            {
+                MessageBox.Show("Identifiant ou mot de passe de l'agence incorrectes, veuillez réessayer à nouveau. Merci !");
+            }
 
         }
 
         protected void btnLoginInvite_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("rechercherChambre.aspx");
 
         }
     }

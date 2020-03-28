@@ -23,8 +23,9 @@ namespace ClientApp
                 String html_code = "";
                     for (int j = 0; j < result.Count(); j++)
                     {
-                        html_code += "<br><p class=\"text-center\">" + result.ElementAt(j).Nom + "<p class=\"text-center\">" + result.ElementAt(j).Adresse;
+                    html_code += "<br><p class=\"text-center\">" + result.ElementAt(j).Nom;
                     for (int m = 0; m < result[j].Nbr_étoiles; m++) html_code += "<span> &#11088;</span>";
+                    html_code += "<p class=\"text-center\">" + result.ElementAt(j).Adresse;
                     html_code += "</a></p><hr><div class=\"row\" runat=\"server\">";
                         for (int i = 0; i < result.ElementAt(j).Chambres.Count(); i++)
                         {
@@ -50,7 +51,7 @@ namespace ClientApp
             String splitor = " to";
             String[] datesAR = dates.Split(splitor.ToCharArray());
             checkIn = datesAR[0];
-            checkOut = datesAR[4];
+            checkOut = datesAR[3];
             System.Diagnostics.Debug.WriteLine(checkIn + "aaand" + checkOut + "for the city " + ville.Value + "one of the " + prixMax.Value);
             result = client.rechercherChambre(ville.Value,
                                                     checkIn,
