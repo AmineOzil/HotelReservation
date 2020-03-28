@@ -13,7 +13,7 @@ namespace WebApplication1
         private DateTime checkOut;
         private int prix_res;
         private Client client;
-        private Agence id_agence;
+        private int id_agence;
 
         public Reservation()
         {
