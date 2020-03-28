@@ -110,10 +110,10 @@ namespace WebApplication1
             /*fin d'ajout*/
             /* Attribution des chambres pour les hôtels */
 
-            Hotel hilton = new Hotel(5, true, "Hilton", "Madrid", "Espagne", "Madrid", "+34 911 53 40 00", chambresHilton);
-            Hotel sheraton = new Hotel(5, true, "Sheraton", "Montpellier", "France", "Montpellier", "+33 911 53 40 00", chambressheraton);
-            Hotel mariott = new Hotel(5, true, "Mariott", "Paris", "France", "Paris", "+33 911 53 40 00", chambresmariott);
-            Hotel stchristopher = new Hotel(3, true, "St Christopher", "Madrid", "Espagne", "Madrid", "+33 911 53 40 00", chambresstchristopher);
+            Hotel hilton = new Hotel(5, true, "Hilton", "Calle de Manuela Malasaña, 6, 28004 Madrid, Espagne", "Espagne", "Madrid", "+34 914 48 58 16", chambresHilton);
+            Hotel sheraton = new Hotel(5, true, "Sheraton", "1 Rue des Pertuisanes, 34000 Montpellier", "France", "Montpellier", "+33 467 99 72 72", chambressheraton);
+            Hotel mariott = new Hotel(5, true, "Mariott", "70 avenue des Champs-Élysées, Paris 75008", "France", "Paris", "+33 153 93 55 00", chambresmariott);
+            Hotel stchristopher = new Hotel(3, true, "St Christopher", "Carrer de Bergara, 3, 08002 Madrid, Espagne", "Espagne", "Madrid", "+34 931 75 14 01", chambresstchristopher);
 
 
             hotels.Add(hilton);
