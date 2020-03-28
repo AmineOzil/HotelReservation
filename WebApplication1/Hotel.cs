@@ -12,8 +12,8 @@ namespace WebApplication1
         private int nbr_étoiles; //pour connaitre la catégorie de l'hôtel
         private bool état; //état pour voir si l'hôtel est plein ou il y'a une disponibilité
         private String nom,adresse,pays,ville,num_tel; // nom de l'hôtel, son adresse, son pays, sa ville, son num_tel
-        private List<Chambre> chambres;
-        private List<Agence> agences;
+        private List<Chambre> chambres; // La liste des chambres de l'hôtel
+        private List<Agence> agences;  //La liste des agences partenaires 
 
         public Hotel()
         {
@@ -218,6 +218,15 @@ namespace WebApplication1
                     }
             }
             return chambresDispo;
+        }
+        public void prixAgence(int id)
+        {
+            double reduction;
+
+            foreach (Chambre chambre in chambres)
+            {
+                
+            }
         }
     }
 }

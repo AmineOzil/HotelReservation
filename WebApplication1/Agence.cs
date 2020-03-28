@@ -7,22 +7,22 @@ namespace WebApplication1
 {
     public class Agence
     {
-        private String id;
+        private static int id;
         private String nom;
         private String username;
         private String password;
         private String pays;
 
-        public String Id
+        public int Id
         {
             get
             {
-                return id;
+                return Id;
             }
 
             set
             {
-                id = value;
+                Id = value;
             }
         }
         public String Nom
@@ -74,9 +74,22 @@ namespace WebApplication1
             }
         }
 
-        public Agence(String id, String nom, String username, String password, String pays)
+        public static int Id1
         {
-            this.Id = id;
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public Agence(String nom, String username, String password, String pays)
+        {
+            this.Id++;
             this.Nom = nom;
             this.Username = username;
             this.Password = password;

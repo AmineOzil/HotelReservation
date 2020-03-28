@@ -18,8 +18,10 @@ namespace WebApplication1
     public class WebService1 : System.Web.Services.WebService
     {
         public static List<Hotel> hotels=new List<Hotel>();
-       
-       
+        public static List<Partenariat> partenariats = new List<Partenariat>();
+        public static List<Agence> agences = new List<Agence>();
+
+
         public void initialise()
         {
             /* Réserver une chambre */
@@ -27,8 +29,8 @@ namespace WebApplication1
             Chambre ch = new Chambre(101, 1, "Simple", 1, 35, "https://www.thonhotels.com/globalassets/hoteller/norge/haugesund/thon-hotel-saga/romtyper/standard-room-single/thon-hotel-saga-standard-room-single-1.jpg?width=1100&height=550&mode=crop&quality=80");
             DateTime dt1 = DateTime.Parse("12/06/2020 12:00");
             DateTime dt2 = DateTime.Parse("18/06/2020 14:00");
-            
-            Reservation res = new Reservation(dt1, dt2,120,new Client("Nassim","Sehout","100123543","+33 424 22 11 43",DateTime.Parse("15/10/1993"),new CarteCredit("453435500343","123","Visa Card","10/23")));
+
+            Reservation res = new Reservation(dt1, dt2, 120, new Client("Nassim", "Sehout", "100123543", "+33 424 22 11 43", DateTime.Parse("15/10/1993"), new CarteCredit("453435500343", "123", "Visa Card", "10/23")));
             ch.ajouterReservation(res);
 
             /* Fin de réservation */
@@ -39,7 +41,7 @@ namespace WebApplication1
             Chambre ch2 = new Chambre(103, 1, "Simple", 1, 35, "https://www.thonhotels.com/globalassets/hoteller/norge/haugesund/thon-hotel-saga/romtyper/standard-room-single/thon-hotel-saga-standard-room-single-1.jpg?width=1100&height=550&mode=crop&quality=80");
             Chambre ch3 = new Chambre(104, 1, "Double", 2, 60, "https://lh3.googleusercontent.com/proxy/KwP-elt55OSSFIl9mL6rNLkBHLgqN5rwDsFo-3YN44lJU1koBysYrZqeXv9xxzeu2HyPtDimHZaHjDby09rKPvLOlunl_69yVuFJ1SYEs5wCXIc6ZxfareT0dQp_A0kaLb09dM8z_wRiTvVVDwTT9N8byQ");
             Chambre ch4 = new Chambre(105, 1, "Duplex", 4, 150, "https://806d2bf04cf5fa54997a-e7c5344b3b84eec5da7b51276407b19c.ssl.cf1.rackcdn.com/responsive/1536/806d2bf04cf5fa54997a-e7c5344b3b84eec5da7b51276407b19c.ssl.cf1.rackcdn.com/responsive/4:3/806d2bf04cf5fa54997a-e7c5344b3b84eec5da7b51276407b19c.ssl.cf1.rackcdn.com/u/conservatorium/rooms/superior-guest-room/Conservatorium_Hotel_Duplex_Guestroom--1-.jpg");
-            
+
             List<Chambre> chambresHilton = new List<Chambre>();
             chambresHilton.Add(ch);
             chambresHilton.Add(ch1);
@@ -55,7 +57,7 @@ namespace WebApplication1
             Chambre ch12 = new Chambre(107, 1, "Simple", 1, 20, "https://www.hotel-leflorin-rennes.fr/images/bedroom-pictures/chambre-simple-new-1920.jpg");
             Chambre ch13 = new Chambre(108, 1, "Double", 2, 32, "https://d11t49axgioj1l.cloudfront.net/_novaimg/4226226-1323135_0_221_2000_1113_925_515.jpg");
             Chambre ch14 = new Chambre(109, 1, "Duplex", 4, 80, "https://www.cantemerle-hotel-vence.com/wp-content/uploads/2015/09/chambre-cantemerle-hotel-vence_41.jpg");
-            
+
             List<Chambre> chambressheraton = new List<Chambre>();
             chambressheraton.Add(ch11);
             chambressheraton.Add(ch12);
@@ -110,13 +112,54 @@ namespace WebApplication1
 
             /* Fin d'attribution */
 
+            /*Ajout des agences */
 
+            Agence asfar = new Agence("Asfar Voyages", "asfar", "asfar20", "France");
+            Agence havas = new Agence("Havas Voyages", "havas", "havas19", "France");
+            Agence enovbm = new Agence("ENOVBM", "enovbm", "montpellier20", "Algerie");
+            Agence invité = new Agence("Invité", "invite", "invite", "World");
+
+            agences.Add(asfar);
+            agences.Add(havas);
+            agences.Add(enovbm);
+            agences.Add(invité);
+            /*fin d'ajout*/
+
+            /*Ajout des partenariats*/
+            int idasfar=asfar.Id;
+            int idhavas= havas.Id;
+            int idenovbm= enovbm.Id;
+            int idinvité = invité.Id;
+            int idhilton = hilton.Id;
+            int idsh = sheraton.Id;
+            int idst = stchristopher.Id;
+            int idmar = mariott.Id;
+            Partenariat p1 = new Partenariat(idasfar, idhilton, 0.20);
+            Partenariat p2 = new Partenariat(idasfar, idsh, 0.25);
+            Partenariat p3 = new Partenariat(idasfar, idst, 0.12);
+            Partenariat p4 = new Partenariat(idenovbm, idhilton, 0.30);
+            Partenariat p5 = new Partenariat(idenovbm, idsh, 0.25);
+            Partenariat p6 = new Partenariat(idenovbm, idmar, 0.10);
+            Partenariat p7 = new Partenariat(idenovbm, idst, 0.35);
+            Partenariat p8 = new Partenariat(idhavas, idhilton, 0.15);
+            Partenariat p9 = new Partenariat(idasfar, idsh, 0.20);
+            Partenariat p10 = new Partenariat(idasfar, idmar, 0.25);
+            partenariats.Add(p1);
+            partenariats.Add(p2);
+            partenariats.Add(p3);
+            partenariats.Add(p4);
+            partenariats.Add(p5);
+            partenariats.Add(p6);
+            partenariats.Add(p7);
+            partenariats.Add(p8);
+            partenariats.Add(p9);
+            partenariats.Add(p10);
         }
 
         [WebMethod]
         public List<Hotel> rechercherChambre(String ville, String checkIn,String checkout, int prixmin, int prixmax, int nbrLits)
         {
-            if (hotels.Count==0)
+            if (hotels.Count==0 || agences.Count==0 || partenariats.Count == 0)
                 initialise();
             List<Hotel> hotelsDispo=new List<Hotel>();
             checkIn += " 12:00";
@@ -138,7 +181,7 @@ namespace WebApplication1
         [WebMethod]
         public String reserverChambres(int id_hotel,String numero_chambres,String checkin,String checkout,String nom_client,String prenom_client,String num_passeport,String num_tel,String date_naissance,String num_carte,String cvv,String type,String date_expiration)
         {
-            if (hotels.Count == 0)
+            if (hotels.Count == 0 || agences.Count == 0 || partenariats.Count == 0)
                 initialise();
             Hotel h = hotels.Find(hotel => hotel.Id == id_hotel);
             String[] numchambres=numero_chambres.Split(';'); // On utilise ; comme séparateur entre chaque deux numéros de chambre à réserver et là on récupère tous ces numéros 
@@ -166,7 +209,34 @@ namespace WebApplication1
             }
             return "Votre réservation a été effectuée avec succès !";
         }
+        public void prixAgence(int id_agence)
+        {
 
+            List<Partenariat> partenariats_agence = partenariats.FindAll(partenariat => partenariat.Id_agence == id_agence); //Récupérer toutes les partenariats d'une agence
+            foreach (Partenariat partenariat in partenariats_agence) //Pour chaque partenariat d'une agence
+            {
+                Hotel hotel_partenaire = hotels.Find(hotel => partenariat.Id_hotel == hotel.Id); //Récupérer l'hôtel partenaire
+                foreach (Chambre chambre in hotel_partenaire.Chambres) //Pour toutes les chambres d'un hôtel partenaire
+                {
+                    chambre.Prix =(int) Math.Round(chambre.Prix-chambre.Prix * partenariat.Pourcentage); //Appliquer le pourcentage de la remise pour cette chambre
+                }
+            }
+        }
+        [WebMethod]
+        public int authentification(String identifiant,String mot_de_passe)
+        {
+            if (hotels.Count == 0 || agences.Count == 0 || partenariats.Count == 0)
+                initialise();
+            foreach (Agence agence in agences)
+            {
+                if (identifiant == agence.Username && agence.Password == mot_de_passe)
+                {
+                    prixAgence(agence.Id);
+                    return agence.Id;
+                }
+            }
+            return 0;
+        }
 
     }
 
