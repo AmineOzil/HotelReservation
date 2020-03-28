@@ -101,5 +101,41 @@ namespace WebApplication1
 
         }
 
+        /*private static List<Inscrit> inscrits = new List<Inscrit>();
+        private static List<Agence> agences = new List<Agence>();
+
+        public void initialise()
+        {
+
+            ajoutInscrit(new Inscrit("Amin", "abcd"));
+            ajoutInscrit(new Inscrit("Nassim", "1234"));
+            ajoutInscrit(new Inscrit("Anes", "0000"));
+
+            agences.Add(new Agence("AG1001", "ENOVBM", "enovbm2020", "pass1001", "Espagne"));
+            agences.Add(new Agence("AG1002", "PLATINIUM", "platinium2020", "pass1002", "Italie"));
+            
+        }
+
+        public void ajoutInscrit(Inscrit i)
+        {
+            inscrits.Add(i);
+            Console.WriteLine(i.nom + " est maintenant inscrit à l'agence");
+        }
+
+        
+        public Inscrit authentificationInscrit(string id, string mdp)
+        {
+            foreach (Inscrit c in inscrits)
+            {
+                if (object.Equals(c.id,id) && object.Equals(c.mdp, mdp))
+                {
+                    return c;
+                }
+            }
+            return null;
+        }
+*/
+
+
     }
 }

@@ -14,9 +14,11 @@ namespace ClientApp
         String num_chambre = "";
         String checkIn = "";
         String checkOut = "";
+        String id_agence = "";
 
         public void Page_Load(object sender, EventArgs e)
         {
+            String id = (String)Session["s2"];
             String result = (String)Session["s1"];
             String splitor = "_";
             String[] dataChambreHotel = result.Split(splitor.ToCharArray());
@@ -38,7 +40,8 @@ namespace ClientApp
         protected void btnFinish_Click(object sender, EventArgs e)
         {
             ClientApp.ServiceHotel.WebService1SoapClient client = new ClientApp.ServiceHotel.WebService1SoapClient();
-           
+
+            String id = (String)Session["s2"];
             String result = (String)Session["s1"];
             String splitor = "_";
             String[] dataChambreHotel = result.Split(splitor.ToCharArray());
@@ -47,6 +50,7 @@ namespace ClientApp
             id_hotel = dataChambreHotel[1];
             checkIn = dataChambreHotel[2];
             checkOut = dataChambreHotel[3];
+            id_agence = id;
             
             String nom = nomC.Value;
             String prenom = prenomC.Value;

@@ -170,9 +170,9 @@ namespace WebApplication1
             this.Pays = hotel.Pays;
             this.Ville = hotel.Ville;
             this.Num_tel = hotel.Num_tel;
-            this.Chambres = chambres;
+            this.Agences = agences;
         }
-        public Hotel(int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres)
+        /*public Hotel(int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres)
         {
             this.Id++;
             this.Nbr_étoiles = nbr_étoiles;
@@ -183,6 +183,20 @@ namespace WebApplication1
             this.Ville = ville;
             this.Num_tel = num_tel;
             this.Chambres = chambres;
+        }*/
+        public Hotel(int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres, List<Agence> agences)
+        {
+            this.Id++;
+            this.Nbr_étoiles = nbr_étoiles;
+            this.État = état;
+            this.Nom = nom;
+            this.Adresse = adresse;
+            this.Pays = pays;
+            this.Ville = ville;
+            this.Num_tel = num_tel;
+            this.Chambres = chambres;
+            this.Agences = agences;
+
         }
         public void addChambre(Chambre chambre)
         {
