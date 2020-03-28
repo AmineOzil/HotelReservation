@@ -9,6 +9,8 @@ namespace ClientApp
 {
     public partial class agenceENOVBM : System.Web.UI.Page
     {
+        ClientApp.ServiceHotel.WebService1SoapClient client = new ClientApp.ServiceHotel.WebService1SoapClient();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -16,7 +18,10 @@ namespace ClientApp
 
         protected void btnLoginAgence_Click(object sender, EventArgs e)
         {
-
+            if (client.authentification(username.Value, password.Value) != 0) {
+                Session["s1"] = client.authentification(username.Value, password.Value);
+                Response.Redirect("rechercherChambre.aspx");
+            }   
 
         }
 

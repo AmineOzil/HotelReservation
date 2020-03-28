@@ -96,7 +96,10 @@ namespace WebApplication1
             this.Pays = pays;
            
         }
+        public Agence()
+        {
 
+        }
 
     }
 }

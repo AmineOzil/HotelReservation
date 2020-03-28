@@ -28,6 +28,13 @@ namespace ClientApp.ServiceHotel {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/reserverChambres", ReplyAction="*")]
         System.Threading.Tasks.Task<string> reserverChambresAsync(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/authentification", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        int authentification(string identifiant, string mot_de_passe);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/authentification", ReplyAction="*")]
+        System.Threading.Tasks.Task<int> authentificationAsync(string identifiant, string mot_de_passe);
     }
     
     /// <remarks/>
@@ -39,6 +46,8 @@ namespace ClientApp.ServiceHotel {
     public partial class Hotel : object, System.ComponentModel.INotifyPropertyChanged {
         
         private Chambre[] chambresField;
+        
+        private Agence[] agencesField;
         
         private int idField;
         
@@ -69,7 +78,19 @@ namespace ClientApp.ServiceHotel {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        [System.Xml.Serialization.XmlArrayAttribute(Order=1)]
+        public Agence[] Agences {
+            get {
+                return this.agencesField;
+            }
+            set {
+                this.agencesField = value;
+                this.RaisePropertyChanged("Agences");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
         public int Id {
             get {
                 return this.idField;
@@ -81,7 +102,7 @@ namespace ClientApp.ServiceHotel {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
         public int Nbr_étoiles {
             get {
                 return this.nbr_étoilesField;
@@ -93,7 +114,7 @@ namespace ClientApp.ServiceHotel {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
         public bool État {
             get {
                 return this.étatField;
@@ -105,7 +126,7 @@ namespace ClientApp.ServiceHotel {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
         public string Nom {
             get {
                 return this.nomField;
@@ -117,7 +138,7 @@ namespace ClientApp.ServiceHotel {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
         public string Adresse {
             get {
                 return this.adresseField;
@@ -129,7 +150,7 @@ namespace ClientApp.ServiceHotel {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
         public string Pays {
             get {
                 return this.paysField;
@@ -141,7 +162,7 @@ namespace ClientApp.ServiceHotel {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
         public string Ville {
             get {
                 return this.villeField;
@@ -153,7 +174,7 @@ namespace ClientApp.ServiceHotel {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
         public string Num_tel {
             get {
                 return this.num_telField;
@@ -554,6 +575,94 @@ namespace ClientApp.ServiceHotel {
         }
     }
     
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3752.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Agence : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int idField;
+        
+        private string nomField;
+        
+        private string usernameField;
+        
+        private string passwordField;
+        
+        private string paysField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public int Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Nom {
+            get {
+                return this.nomField;
+            }
+            set {
+                this.nomField = value;
+                this.RaisePropertyChanged("Nom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Username {
+            get {
+                return this.usernameField;
+            }
+            set {
+                this.usernameField = value;
+                this.RaisePropertyChanged("Username");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string Password {
+            get {
+                return this.passwordField;
+            }
+            set {
+                this.passwordField = value;
+                this.RaisePropertyChanged("Password");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Pays {
+            get {
+                return this.paysField;
+            }
+            set {
+                this.paysField = value;
+                this.RaisePropertyChanged("Pays");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WebService1SoapChannel : ClientApp.ServiceHotel.WebService1Soap, System.ServiceModel.IClientChannel {
     }
@@ -595,6 +704,14 @@ namespace ClientApp.ServiceHotel {
         
         public System.Threading.Tasks.Task<string> reserverChambresAsync(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration) {
             return base.Channel.reserverChambresAsync(id_hotel, numero_chambres, checkin, checkout, nom_client, prenom_client, num_passeport, num_tel, date_naissance, num_carte, cvv, type, date_expiration);
+        }
+        
+        public int authentification(string identifiant, string mot_de_passe) {
+            return base.Channel.authentification(identifiant, mot_de_passe);
+        }
+        
+        public System.Threading.Tasks.Task<int> authentificationAsync(string identifiant, string mot_de_passe) {
+            return base.Channel.authentificationAsync(identifiant, mot_de_passe);
         }
     }
 }

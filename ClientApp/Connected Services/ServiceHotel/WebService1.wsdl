@@ -29,6 +29,7 @@
       <s:complexType name="Hotel">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="1" name="Chambres" type="tns:ArrayOfChambre" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agences" type="tns:ArrayOfAgence" />
           <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="Nbr_étoiles" type="s:int" />
           <s:element minOccurs="1" maxOccurs="1" name="État" type="s:boolean" />
@@ -87,6 +88,20 @@
           <s:element minOccurs="0" maxOccurs="1" name="Date_expiration" type="s:string" />
         </s:sequence>
       </s:complexType>
+      <s:complexType name="ArrayOfAgence">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Agence" nillable="true" type="tns:Agence" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Agence">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pays" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="reserverChambres">
         <s:complexType>
           <s:sequence>
@@ -113,8 +128,24 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="authentification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="identifiant" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mot_de_passe" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="authentificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="authentificationResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="ArrayOfHotel" nillable="true" type="tns:ArrayOfHotel" />
       <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="int" type="s:int" />
     </s:schema>
   </wsdl:types>
   <wsdl:message name="rechercherChambreSoapIn">
@@ -128,6 +159,12 @@
   </wsdl:message>
   <wsdl:message name="reserverChambresSoapOut">
     <wsdl:part name="parameters" element="tns:reserverChambresResponse" />
+  </wsdl:message>
+  <wsdl:message name="authentificationSoapIn">
+    <wsdl:part name="parameters" element="tns:authentification" />
+  </wsdl:message>
+  <wsdl:message name="authentificationSoapOut">
+    <wsdl:part name="parameters" element="tns:authentificationResponse" />
   </wsdl:message>
   <wsdl:message name="rechercherChambreHttpGetIn">
     <wsdl:part name="ville" type="s:string" />
@@ -158,6 +195,13 @@
   <wsdl:message name="reserverChambresHttpGetOut">
     <wsdl:part name="Body" element="tns:string" />
   </wsdl:message>
+  <wsdl:message name="authentificationHttpGetIn">
+    <wsdl:part name="identifiant" type="s:string" />
+    <wsdl:part name="mot_de_passe" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="authentificationHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
   <wsdl:portType name="WebService1Soap">
     <wsdl:operation name="rechercherChambre">
       <wsdl:input message="tns:rechercherChambreSoapIn" />
@@ -166,6 +210,10 @@
     <wsdl:operation name="reserverChambres">
       <wsdl:input message="tns:reserverChambresSoapIn" />
       <wsdl:output message="tns:reserverChambresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="authentification">
+      <wsdl:input message="tns:authentificationSoapIn" />
+      <wsdl:output message="tns:authentificationSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="WebService1HttpGet">
@@ -176,6 +224,10 @@
     <wsdl:operation name="reserverChambres">
       <wsdl:input message="tns:reserverChambresHttpGetIn" />
       <wsdl:output message="tns:reserverChambresHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="authentification">
+      <wsdl:input message="tns:authentificationHttpGetIn" />
+      <wsdl:output message="tns:authentificationHttpGetOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
@@ -191,6 +243,15 @@
     </wsdl:operation>
     <wsdl:operation name="reserverChambres">
       <soap:operation soapAction="http://tempuri.org/reserverChambres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authentification">
+      <soap:operation soapAction="http://tempuri.org/authentification" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -219,6 +280,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="authentification">
+      <soap12:operation soapAction="http://tempuri.org/authentification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebService1HttpGet" type="tns:WebService1HttpGet">
     <http:binding verb="GET" />
@@ -233,6 +303,15 @@
     </wsdl:operation>
     <wsdl:operation name="reserverChambres">
       <http:operation location="/reserverChambres" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authentification">
+      <http:operation location="/authentification" />
       <wsdl:input>
         <http:urlEncoded />
       </wsdl:input>

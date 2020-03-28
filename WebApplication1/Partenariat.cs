@@ -11,6 +11,10 @@ namespace WebApplication1
         private double pourcentage;
         private static int id_partenariat=0;
 
+        public Partenariat()
+        {
+
+        }
         public Partenariat(int id_agence, int id_hotel, double pourcentage)
         {
             this.Id_partenariat++;
