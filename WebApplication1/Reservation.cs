@@ -20,7 +20,7 @@ namespace WebApplication1
 
         }
 
-        public Reservation(DateTime checkIn, DateTime checkOut, int prix_res, Client client, Agence id_agence)
+        public Reservation(DateTime checkIn, DateTime checkOut, int prix_res, Client client, int id_agence)
         {
             this.Compteur++;
             this.Id = this.Compteur;
@@ -107,7 +107,7 @@ namespace WebApplication1
             }
         }
 
-        public Agence Id_agence
+        public int Id_agence
         {
             get
             {
