@@ -168,7 +168,8 @@ namespace WebApplication1
             foreach (Hotel hotel in hotels)
             {  if (hotel.Ville.Equals(ville) && hotel.chambresDispo(cin,cout,prixmin,prixmax,nbrLits).Count>0)
                 {
-                   hotelsDispo.Add(hotel);
+                    Hotel h = new Hotel(hotel, hotel.chambresDispo(cin, cout, prixmin, prixmax, nbrLits));
+                   hotelsDispo.Add(h);
                 }
             }
             return hotelsDispo;

@@ -24,10 +24,10 @@ namespace ClientApp.ServiceHotel {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/reserverChambres", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        string reserverChambres(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration);
+        string reserverChambres(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration, int id_agence);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/reserverChambres", ReplyAction="*")]
-        System.Threading.Tasks.Task<string> reserverChambresAsync(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration);
+        System.Threading.Tasks.Task<string> reserverChambresAsync(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration, int id_agence);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/authentification", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -331,6 +331,8 @@ namespace ClientApp.ServiceHotel {
         
         private Client clientField;
         
+        private int id_agenceField;
+        
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=0)]
         public int Id {
@@ -400,6 +402,18 @@ namespace ClientApp.ServiceHotel {
             set {
                 this.clientField = value;
                 this.RaisePropertyChanged("Client");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public int Id_agence {
+            get {
+                return this.id_agenceField;
+            }
+            set {
+                this.id_agenceField = value;
+                this.RaisePropertyChanged("Id_agence");
             }
         }
         
@@ -652,12 +666,12 @@ namespace ClientApp.ServiceHotel {
             return base.Channel.rechercherChambreAsync(ville, checkIn, checkout, prixmin, prixmax, nbrLits);
         }
         
-        public string reserverChambres(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration) {
-            return base.Channel.reserverChambres(id_hotel, numero_chambres, checkin, checkout, nom_client, prenom_client, num_passeport, num_tel, date_naissance, num_carte, cvv, type, date_expiration);
+        public string reserverChambres(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration, int id_agence) {
+            return base.Channel.reserverChambres(id_hotel, numero_chambres, checkin, checkout, nom_client, prenom_client, num_passeport, num_tel, date_naissance, num_carte, cvv, type, date_expiration, id_agence);
         }
         
-        public System.Threading.Tasks.Task<string> reserverChambresAsync(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration) {
-            return base.Channel.reserverChambresAsync(id_hotel, numero_chambres, checkin, checkout, nom_client, prenom_client, num_passeport, num_tel, date_naissance, num_carte, cvv, type, date_expiration);
+        public System.Threading.Tasks.Task<string> reserverChambresAsync(int id_hotel, string numero_chambres, string checkin, string checkout, string nom_client, string prenom_client, string num_passeport, string num_tel, string date_naissance, string num_carte, string cvv, string type, string date_expiration, int id_agence) {
+            return base.Channel.reserverChambresAsync(id_hotel, numero_chambres, checkin, checkout, nom_client, prenom_client, num_passeport, num_tel, date_naissance, num_carte, cvv, type, date_expiration, id_agence);
         }
         
         public int authentification(string identifiant, string mot_de_passe) {
