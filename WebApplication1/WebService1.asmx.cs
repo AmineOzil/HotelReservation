@@ -30,7 +30,7 @@ namespace WebApplication1
             DateTime dt1 = DateTime.Parse("12/06/2020 12:00");
             DateTime dt2 = DateTime.Parse("18/06/2020 14:00");
 
-            Reservation res = new Reservation(dt1, dt2, 120, new Client("Nassim", "Sehout", "100123543", "+33 424 22 11 43", DateTime.Parse("15/10/1993"), new CarteCredit("453435500343", "123", "Visa Card", "10/23")));
+            Reservation res = new Reservation(dt1, dt2, 120, new Client("Nassim", "Sehout", "100123543", "+33 424 22 11 43", DateTime.Parse("15/10/1993"), new CarteCredit("453435500343", "123", "Visa Card", "10/23")), 1);
             ch.ajouterReservation(res);
 
             /* Fin de réservation */
