@@ -18,10 +18,12 @@ namespace ClientApp
 
         protected void btnLoginAgence_Click(object sender, EventArgs e)
         {
-            if (client.authentification(username.Value, password.Value) != 0) {
-                Session["s1"] = client.authentification(username.Value, password.Value);
+            int id_agence=client.authentification(username.Value, password.Value);
+            if (id_agence != 0)
+            {
+                Session["s1"] =id_agence;
                 Response.Redirect("rechercherChambre.aspx");
-            }   
+            }
 
         }
 
@@ -30,3 +32,5 @@ namespace ClientApp
 
 
         }
+    }
+}

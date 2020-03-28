@@ -96,6 +96,18 @@ namespace WebApplication1
 
             /* Fin d'ajout */
 
+            /*Ajout des agences */
+
+            Agence asfar = new Agence("Asfar Voyages", "asfar", "asfar20", "France");
+            Agence havas = new Agence("Havas Voyages", "havas", "havas19", "France");
+            Agence enovbm = new Agence("ENOVBM", "enovbm", "montpellier20", "Algerie");
+            Agence invité = new Agence("Invité", "invite", "invite", "World");
+
+            agences.Add(asfar);
+            agences.Add(havas);
+            agences.Add(enovbm);
+            agences.Add(invité);
+            /*fin d'ajout*/
             /* Attribution des chambres pour les hôtels */
 
             Hotel hilton = new Hotel(5, true, "Hilton", "Madrid", "Espagne", "Madrid", "+34 911 53 40 00", chambresHilton);
@@ -111,22 +123,8 @@ namespace WebApplication1
 
 
             /* Fin d'attribution */
-
-            /*Ajout des agences */
-
-            Agence asfar = new Agence("Asfar Voyages", "asfar", "asfar20", "France");
-            Agence havas = new Agence("Havas Voyages", "havas", "havas19", "France");
-            Agence enovbm = new Agence("ENOVBM", "enovbm", "montpellier20", "Algerie");
-            Agence invité = new Agence("Invité", "invite", "invite", "World");
-
-            agences.Add(asfar);
-            agences.Add(havas);
-            agences.Add(enovbm);
-            agences.Add(invité);
-            /*fin d'ajout*/
-
             /*Ajout des partenariats*/
-            int idasfar=asfar.Id;
+            int idasfar =asfar.Id;
             int idhavas= havas.Id;
             int idenovbm= enovbm.Id;
             int idinvité = invité.Id;
@@ -142,8 +140,8 @@ namespace WebApplication1
             Partenariat p6 = new Partenariat(idenovbm, idmar, 0.10);
             Partenariat p7 = new Partenariat(idenovbm, idst, 0.35);
             Partenariat p8 = new Partenariat(idhavas, idhilton, 0.15);
-            Partenariat p9 = new Partenariat(idasfar, idsh, 0.20);
-            Partenariat p10 = new Partenariat(idasfar, idmar, 0.25);
+            Partenariat p9 = new Partenariat(idhavas, idsh, 0.20);
+            Partenariat p10 = new Partenariat(idhavas, idmar, 0.25);
             partenariats.Add(p1);
             partenariats.Add(p2);
             partenariats.Add(p3);
@@ -218,7 +216,7 @@ namespace WebApplication1
                 Hotel hotel_partenaire = hotels.Find(hotel => partenariat.Id_hotel == hotel.Id); //Récupérer l'hôtel partenaire
                 foreach (Chambre chambre in hotel_partenaire.Chambres) //Pour toutes les chambres d'un hôtel partenaire
                 {
-                    chambre.Prix =(int) Math.Round(chambre.Prix-chambre.Prix * partenariat.Pourcentage); //Appliquer le pourcentage de la remise pour cette chambre
+                    chambre.Prix -=(int) (chambre.Prix * partenariat.Pourcentage); //Appliquer le pourcentage de la remise pour cette chambre
                 }
             }
         }

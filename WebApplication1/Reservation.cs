@@ -7,7 +7,8 @@ namespace WebApplication1
 {
     public class Reservation
     {
-        private static int id;
+        private static int compteur=0;
+        private int id;
         private DateTime checkIn;
         private DateTime checkOut;
         private int prix_res;
@@ -20,7 +21,8 @@ namespace WebApplication1
 
         public Reservation(DateTime checkIn, DateTime checkOut, int prix_res, Client client)
         {
-            this.Id++;
+            this.Compteur++;
+            this.Id = this.Compteur;
             this.checkIn = checkIn;
             this.checkOut = checkOut;
             this.prix_res = prix_res;
@@ -39,7 +41,18 @@ namespace WebApplication1
                 id = value;
             }
         }
+        public int Compteur
+        {
+            get
+            {
+                return compteur;
+            }
 
+            set
+            {
+                compteur = value;
+            }
+        }
         public DateTime CheckIn
         {
             get

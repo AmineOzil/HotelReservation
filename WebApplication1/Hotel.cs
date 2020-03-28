@@ -8,12 +8,12 @@ namespace WebApplication1
 {
     public class Hotel
     {
-        private static int id=0; //pour identifier l'hôtel,static pour qu'il soit autoincrémenté
+        private static int compteur=0; //pour identifier l'hôtel,static pour qu'il soit autoincrémenté
+        private int id;
         private int nbr_étoiles; //pour connaitre la catégorie de l'hôtel
         private bool état; //état pour voir si l'hôtel est plein ou il y'a une disponibilité
         private String nom,adresse,pays,ville,num_tel; // nom de l'hôtel, son adresse, son pays, sa ville, son num_tel
         private List<Chambre> chambres; // La liste des chambres de l'hôtel
-        private List<Agence> agences;  //La liste des agences partenaires 
 
         public Hotel()
         {
@@ -33,18 +33,7 @@ namespace WebApplication1
             }
         }
 
-        public List<Agence> Agences
-        {
-            get
-            {
-                return agences;
-            }
 
-            set
-            {
-                agences = value;
-            }
-        }
 
         public int Id
         {
@@ -58,7 +47,18 @@ namespace WebApplication1
                 id = value;
             }
         }
+        public int Compteur
+        {
+            get
+            {
+                return compteur;
+            }
 
+            set
+            {
+                compteur = value;
+            }
+        }
         public int Nbr_étoiles
         {
             get
@@ -161,52 +161,26 @@ namespace WebApplication1
             this.Num_tel = hotel.Num_tel;
             this.Chambres = chambres;
         }
-        public Hotel(Hotel hotel, List<Agence> agences)
-        {
-            this.Nbr_étoiles = hotel.Nbr_étoiles;
-            this.État = hotel.État;
-            this.Nom = hotel.Nom;
-            this.Adresse = hotel.Adresse;
-            this.Pays = hotel.Pays;
-            this.Ville = hotel.Ville;
-            this.Num_tel = hotel.Num_tel;
-            this.Agences = agences;
-        }
-        /*public Hotel(int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres)
-        {
-            this.Id++;
-            this.Nbr_étoiles = nbr_étoiles;
-            this.État = état;
-            this.Nom = nom;
-            this.Adresse = adresse;
-            this.Pays = pays;
-            this.Ville = ville;
-            this.Num_tel = num_tel;
-            this.Chambres = chambres;
-        }*/
-        public Hotel(int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres, List<Agence> agences)
-        {
-            this.Id++;
-            this.Nbr_étoiles = nbr_étoiles;
-            this.État = état;
-            this.Nom = nom;
-            this.Adresse = adresse;
-            this.Pays = pays;
-            this.Ville = ville;
-            this.Num_tel = num_tel;
-            this.Chambres = chambres;
-            this.Agences = agences;
 
+        public Hotel(int nbr_étoiles, bool état, string nom, string adresse, string pays, string ville, string num_tel, List<Chambre> chambres)
+        {
+            this.Compteur++;
+            this.Id = this.Compteur;
+            this.Nbr_étoiles = nbr_étoiles;
+            this.État = état;
+            this.Nom = nom;
+            this.Adresse = adresse;
+            this.Pays = pays;
+            this.Ville = ville;
+            this.Num_tel = num_tel;
+            this.Chambres = chambres;
         }
+
         public void addChambre(Chambre chambre)
         {
             Chambres.Add(chambre);
         }
 
-        public void addAgence(Agence agence)
-        {
-            Agences.Add(agence);
-        }
 
         /*Non utilisée jusqu'à maintenant
         public bool etat(DateTime checkIn,DateTime checkOut)

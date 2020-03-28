@@ -9,7 +9,8 @@ namespace WebApplication1
     {
         private int id_agence, id_hotel;
         private double pourcentage;
-        private static int id_partenariat=0;
+        private int id_partenariat;
+        private static int compteur=0;
 
         public Partenariat()
         {
@@ -17,7 +18,8 @@ namespace WebApplication1
         }
         public Partenariat(int id_agence, int id_hotel, double pourcentage)
         {
-            this.Id_partenariat++;
+            this.Compteur++;
+            this.Id_partenariat = this.Compteur;
             this.Id_agence = id_agence;
             this.Id_hotel = id_hotel;
             this.Pourcentage = pourcentage;
@@ -49,16 +51,16 @@ namespace WebApplication1
             }
         }
 
-        public int Id_partenariat
+        public int Compteur
         {
             get
             {
-                return Id_partenariat;
+                return compteur;
             }
 
             set
             {
-                Id_partenariat = value;
+                compteur = value;
             }
         }
 
@@ -75,7 +77,7 @@ namespace WebApplication1
             }
         }
 
-        public static int Id_partenariat1
+        public int Id_partenariat
         {
             get
             {
