@@ -29,7 +29,12 @@ namespace ClientApp
 
         protected void btnLoginInvite_Click(object sender, EventArgs e)
         {
-
+            int id_agence = client.authentification("invite", "invite");
+            if (id_agence != 0)
+            {
+                Session["s1"] = id_agence;
+                Response.Redirect("rechercherChambre.aspx");
+            }
 
         }
     }

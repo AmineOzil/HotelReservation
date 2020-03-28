@@ -9,7 +9,7 @@ namespace WebApplication1
     public class Hotel
     {
         private static int compteur=0; //pour identifier l'hôtel,static pour qu'il soit autoincrémenté
-        private int id;
+        private int id; //
         private int nbr_étoiles; //pour connaitre la catégorie de l'hôtel
         private bool état; //état pour voir si l'hôtel est plein ou il y'a une disponibilité
         private String nom,adresse,pays,ville,num_tel; // nom de l'hôtel, son adresse, son pays, sa ville, son num_tel
